@@ -43,5 +43,5 @@ npm ci
 **ローカルでの起動**
 
 ```zsh
-npm dev
+npm run dev
 ```
