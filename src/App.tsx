@@ -1,7 +1,13 @@
-import { Box } from '@mui/material';
+import { CssBaseline } from '@mui/material';
+import { Router } from './routes/Router';
 
 function App() {
-  return <Box>マイナポータル</Box>;
+  return (
+    <>
+      <CssBaseline />
+      <Router />
+    </>
+  );
 }
 
 export default App;
