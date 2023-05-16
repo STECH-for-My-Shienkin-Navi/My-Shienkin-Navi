@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@mui/material';
 import { FC } from 'react';
 import { RecoilRoot } from 'recoil';
-import { theme } from '../theme/theme';
+import { theme } from '../components/theme/theme';
 
 type Props = {
   children: React.ReactNode;
