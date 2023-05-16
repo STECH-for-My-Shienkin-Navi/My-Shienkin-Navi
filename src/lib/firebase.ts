@@ -6,13 +6,13 @@ import { initializeApp } from 'firebase/app';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+  apiKey: 'AIzaSyDwADYm2Vzu9dhlg4f_IhbNQnvhiv0v5Go',
+  authDomain: 'my-shienkin-navi.firebaseapp.com',
+  projectId: 'my-shienkin-navi',
+  storageBucket: 'my-shienkin-navi.appspot.com',
+  messagingSenderId: '1071664114583',
+  appId: '1:1071664114583:web:3489be3309e5e2e920f2d2',
+  measurementId: 'G-75VGFKL6RE',
 };
 
 // Initialize Firebase
