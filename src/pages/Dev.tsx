@@ -46,8 +46,9 @@ export const Dev: FC = () => {
           <Box sx={{ p: 3, border: 'solid 0.5px', borderRadius: '10px' }}>
             <Row spacing={2}>
               {[...Array(3)].map((_, i) => {
+                const key = Math.random();
                 return (
-                  <Box key={i} sx={{ bgcolor: 'primary.main', color: 'white' }}>
+                  <Box key={key} sx={{ bgcolor: 'primary.main', color: 'white' }}>
                     Row{i + 1}
                   </Box>
                 );
