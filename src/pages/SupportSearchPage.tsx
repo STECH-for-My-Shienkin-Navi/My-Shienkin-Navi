@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { MainLayout } from '../layout/MainLayout';
+import { MainLayout } from '../components/layout/MainLayout';
 
 export const TopPage: FC = () => {
   return (
-    <MainLayout title="My支援金ナビ">
+    <MainLayout title="支援金検索">
       <div>aaa</div>
     </MainLayout>
   );
