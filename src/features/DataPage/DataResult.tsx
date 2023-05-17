@@ -1,5 +1,5 @@
 import { FC } from 'react';
 
-export const DataResultPage: FC = () => {
+export const DataResult: FC = () => {
   return <div>aaa</div>;
 };

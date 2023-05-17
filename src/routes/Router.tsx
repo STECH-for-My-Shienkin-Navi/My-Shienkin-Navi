@@ -9,7 +9,6 @@ import { DataSharePage } from '../pages/DataSharePage';
 import { DataReceivePage } from '../pages/DataReceivePage';
 import { ErrorPage } from '../pages/ErrorPage';
 import { Dev } from '../pages/Dev';
-import { DataResultPage } from '../pages/DataResultPage';
 
 export const Router: FC = () => {
   return (
@@ -22,7 +21,6 @@ export const Router: FC = () => {
         <Route path={'/DataTop'} element={<DataTopPage />} />
         <Route path={'/DataShare'} element={<DataSharePage />} />
         <Route path={'/DataReceivePage'} element={<DataReceivePage />} />
-        <Route path={'/DataResultPage'} element={<DataResultPage />} />
         <Route path={'/dev'} element={<Dev />} />
         <Route path={'/*'} element={<ErrorPage />} />
       </Routes>
