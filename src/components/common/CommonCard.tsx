@@ -17,7 +17,7 @@ export const CommonCard: FC<Props> = ({ children, title, index, onClick }) => {
 
   return (
     <Card>
-      <CardActionArea onClick={handleClick}>
+      <CardActionArea onClick={handleClick} disabled={onClick ? false : true}>
         <CardContent>
           <Box>
             <Typography variant="h6">{title}</Typography>
