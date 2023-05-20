@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { TopPage } from '../pages/TopPage';
-import { SupportSearchPage } from '../pages/SupportSearchPage';
-import { SupportListPage } from '../pages/SupportListPage';
-import { SupportDetailPage } from '../pages/SupportDetailPage';
-import { DataTopPage } from '../pages/DataTopPage';
-import { DataSharePage } from '../pages/DataSharePage';
-import { DataReceivePage } from '../pages/DataReceivePage';
-import { ErrorPage } from '../pages/ErrorPage';
-import { Dev } from '../pages/Dev';
+import { TopPage } from '../components/pages/TopPage';
+import { SupportSearchPage } from '../components/pages/SupportSearchPage';
+import { SupportListPage } from '../components/pages/SupportListPage';
+import { SupportDetailPage } from '../components/pages/SupportDetailPage';
+import { DataTopPage } from '../components/pages/DataTopPage';
+import { DataSharePage } from '../components/pages/DataSharePage';
+import { DataReceivePage } from '../components/pages/DataReceivePage';
+import { ErrorPage } from '../components/pages/ErrorPage';
+import { Dev } from '../components/pages/Dev';
 
 export const Router: FC = () => {
   return (

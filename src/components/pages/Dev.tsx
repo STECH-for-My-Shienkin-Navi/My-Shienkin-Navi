@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { MainLayout } from '../components/layout/MainLayout';
-import { CommonButton } from '../components/common/CommonButton';
+import { MainLayout } from '../layout/MainLayout';
+import { CommonButton } from '../common/CommonButton';
 import { Box, Stack, Typography } from '@mui/material';
-import { CommonCard } from '../components/common/CommonCard';
-import { Row } from '../components/common/Row';
-import { Col } from '../components/common/Col';
+import { CommonCard } from '../common/CommonCard';
+import { Row } from '../common/Row';
+import { Col } from '../common/Col';
 
 export const Dev: FC = () => {
   const handle = () => {
