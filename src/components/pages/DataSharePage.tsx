@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { MainLayout } from '../components/layout/MainLayout';
+import { MainLayout } from '../layout/MainLayout';
 
 export const DataSharePage: FC = () => {
   return (

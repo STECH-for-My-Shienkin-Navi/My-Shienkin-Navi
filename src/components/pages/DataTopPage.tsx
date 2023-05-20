@@ -1,10 +1,10 @@
-import { FC } from "react";
-import { MainLayout } from "../layout/MainLayout"
+import { FC } from 'react';
+import { MainLayout } from '../layout/MainLayout';
 
 export const DataTopPage: FC = () => {
-    return (
-        <MainLayout title="データ共有">
-            <p>あああ</p>
-        </MainLayout>
-    );
+  return (
+    <MainLayout title="データの共有・受取">
+      <div>aaa</div>
+    </MainLayout>
+  );
 };
