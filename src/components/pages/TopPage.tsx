@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MainLayout } from '../layout/MainLayout';
 import { Card, CardContent, Stack, Typography } from '@mui/material';
+import { CommonCard } from '../common/CommonCard';
 
 const cardStyle = {
   width: '90%',
@@ -13,11 +14,14 @@ const cardStyle = {
 
 export const TopPage: FC = () => {
   const navigate = useNavigate();
+  const handle = () => {
+    navigate('/SupportSearch');
+  };
 
   return (
     <MainLayout title="My支援金ナビ">
       <Stack spacing={2}>
-        <Card variant="outlined" style={cardStyle} onClick={() => navigate('/support-search')}>
+        <Card variant="outlined" style={cardStyle} onClick={() => navigate('/SupportSearch')}>
           <CardContent>
             <Typography variant="h5" style={{ fontWeight: 'bold' }}>
               支援金検索
@@ -27,7 +31,7 @@ export const TopPage: FC = () => {
             </Typography>
           </CardContent>
         </Card>
-        <Card variant="outlined" style={cardStyle} onClick={() => navigate('/data-top')}>
+        <Card variant="outlined" style={cardStyle} onClick={() => navigate('/DataTop')}>
           <CardContent>
             <Typography variant="h5" style={{ fontWeight: 'bold' }}>
               個人データの共有・受け取り
