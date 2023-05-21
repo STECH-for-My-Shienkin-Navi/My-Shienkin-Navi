@@ -57,7 +57,7 @@ export const SupportListPage: FC = () => {
         <Stack direction="row" spacing={4} sx={{mx: 4}} alignItems="center" justifyContent="center">
           <IconButton sx={{border: "1px solid"}}><FirstPageIcon /></IconButton>
           <IconButton sx={{border: "1px solid"}}><NavigateBeforeIcon /></IconButton>
-          <Typography variant='body2'>1 / 2</Typography>
+          <Typography variant='body2' noWrap>1 / 2</Typography>
           <IconButton sx={{border: "1px solid"}}><NavigateNextIcon /></IconButton>
           <IconButton sx={{border: "1px solid"}}><LastPageIcon /></IconButton>
         </Stack>
