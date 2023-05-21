@@ -26,8 +26,17 @@ export const CommonButton: FC<Props> = ({
   };
 
   return (
-    <Button size="large" variant={selectVariant()} disabled={isDisabled} onClick={onClick}>
-      <Typography sx={{ textDecoration: isText ? 'underline' : '' }}>{children}</Typography>
+    <Button
+      size="medium"
+      variant={selectVariant()}
+      disabled={isDisabled}
+      fullWidth
+      sx={{ p: 2, borderRadius: 2 }}
+      onClick={onClick}
+    >
+      <Typography variant="body1" sx={{ textDecoration: isText ? 'underline' : '' }}>
+        {children}
+      </Typography>
     </Button>
   );
 };

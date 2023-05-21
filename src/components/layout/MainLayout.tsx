@@ -8,8 +8,8 @@ type Props = {
 
 export const MainLayout: FC<Props> = ({ title, children }) => {
   return (
-    <Box sx={{ bgcolor: '#F4F4F4' }}>
-      <Container maxWidth="xs" sx={{ p: 5, bgcolor: 'white' }}>
+    <Box sx={{ bgcolor: '#F4F4F4', minHeight: '100vh' }}>
+      <Container maxWidth="xs" sx={{ p: 5, bgcolor: 'white', minHeight: '100vh' }}>
         <Typography variant="h4" sx={{ textAlign: 'left' }}>
           {title}
         </Typography>
