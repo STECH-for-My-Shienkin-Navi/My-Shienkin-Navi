@@ -30,6 +30,7 @@ export const CommonButton: FC<Props> = ({
       size="medium"
       variant={selectVariant()}
       disabled={isDisabled}
+      fullWidth
       sx={{ p: 2, borderRadius: 2 }}
       onClick={onClick}
     >

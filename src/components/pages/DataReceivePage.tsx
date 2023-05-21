@@ -63,8 +63,10 @@ export const DataReceivePage: FC = () => {
         </DialogContent>
       </Dialog>
 
+      <Box>
+
       <Typography variant='body1' style={{marginBottom: "20px"}}>共有されたデータを受け取ります。<br></br>共有リンクを入力して「次へ」を押してください。</Typography>
-      <Stack spacing={1} style={{width: "70%"}}>
+      <Stack spacing={1}>
         <Typography variant='body1' style={{fontWeight: "bold"}}>共有リンク <span style={{color: "#FF0000"}}>必須</span></Typography>
         <TextField fullWidth required error={textError} id='outlined-required' defaultValue={''} value={textValue} placeholder='入力してください'
         onChange={(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -74,11 +76,12 @@ export const DataReceivePage: FC = () => {
         {textError ? <p style={{color: "#FF0000"}}>共有リンクは必須入力です。</p> : <p>        </p>}
         <CommonButton isText onClick={handle}>共有リンクの取得方法</CommonButton>
       </Stack>
-      <Box sx={{marginTop: "30px"}}>
+      <Box sx={{marginTop: "30px", mx: 2, mt: 2}}>
         <Col spacing={2}>
           <CommonButton isDisabled={nextButtonIsDisabled} onClick={() => setDialogOpen(true)}>次へ</CommonButton>
           <CommonButton isSecondary onClick={() => navigate('/DataTop')}>戻る</CommonButton>
         </Col>
+      </Box>
       </Box>
     </MainLayout>
   );
