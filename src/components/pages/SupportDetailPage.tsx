@@ -53,7 +53,7 @@ export const SupportDetailPage: FC = () => {
     <MainLayout title="支援金の詳細">
       <Box>
         <Box sx={{ textAlign: 'center' }}>
-          <img src={supportImg} loading="lazy" style={{ width: 250 }} alt="家族のイラスト" />
+          <img src={supportImg} loading="lazy" style={{ width: 250 }} alt="支援のイラスト" />
         </Box>
         <Box sx={{ mx: 2, mt: 2 }}>
           <Col spacing={2}>
