@@ -20,7 +20,7 @@ export const Router: FC = () => {
         <Route path={'/SupportDetail'} element={<SupportDetailPage />} />
         <Route path={'/DataTop'} element={<DataTopPage />} />
         <Route path={'/DataShare'} element={<DataSharePage />} />
-        <Route path={'/DataReceivePage'} element={<DataReceivePage />} />
+        <Route path={'/DataReceive'} element={<DataReceivePage />} />
         <Route path={'/dev'} element={<Dev />} />
         <Route path={'/*'} element={<ErrorPage />} />
       </Routes>
