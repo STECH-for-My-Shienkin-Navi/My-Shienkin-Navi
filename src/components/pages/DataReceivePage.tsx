@@ -118,7 +118,7 @@ export const DataReceivePage:FC = () => {
         </Col>
       </Box>
       </Box>
-    </MainLayout>
+      </MainLayout>
     )
   }
 };
