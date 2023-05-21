@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { MainLayout } from '../layout/MainLayout';
 import { Stack, Typography } from '@mui/material';
 import { TextField } from '@mui/material';
