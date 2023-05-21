@@ -41,12 +41,12 @@ export const SupportDetailPage: FC = () => {
   const navigator = useNavigate();
   const navList = [
     {
-      labele: 'この支援金を申請する',
+      label: 'この支援金を申請する',
       path: null,
       isPrimary: true,
     },
     {
-      labele: '支援金の選択肢に戻る',
+      label: '支援金の選択肢に戻る',
       path: '/SupportList',
       isSecondary: true,
     },
@@ -61,11 +61,11 @@ export const SupportDetailPage: FC = () => {
           <Col spacing={2}>
             {infoList.map((item) => {
               return (
-                <Box>
+                <Box key={item.title}>
                   <Typography variant="h5">{item.title}</Typography>
                   {item.contents.map((content, index) => {
                     return (
-                      <Box>
+                      <Box key={item.title}>
                         {item.isURL ? (
                           <Typography sx={{ pl: 2 }}><a href="https://www.〇〇.com">{content}</a></Typography>
                         ) : (
@@ -87,14 +87,14 @@ export const SupportDetailPage: FC = () => {
             {navList.map((item) => {
               return (
                 <CommonButton
-                  key={item.labele}
+                  key={item.label}
                   isPrimary={item.isPrimary}
                   isSecondary={item.isSecondary}
                   onClick={() => {
                     item.path && navigator(item.path)
                   }}
                 >
-                  {item.labele}
+                  {item.label}
                 </CommonButton>
               );
             })}
