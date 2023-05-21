@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActionArea, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardActionArea, CardContent, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 
 type Props = {
@@ -10,8 +10,8 @@ type Props = {
 
 export const CommonCard: FC<Props> = ({ children, title, index, onClick }) => {
   const handleClick = () => {
-    if (onClick && index) {
-      onClick(index);
+    if (onClick) {
+      onClick(index ? index : 0);
     }
   };
 
