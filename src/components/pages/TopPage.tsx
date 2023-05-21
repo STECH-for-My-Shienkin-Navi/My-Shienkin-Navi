@@ -17,7 +17,7 @@ export const TopPage: FC = () => {
   return (
     <MainLayout title="My支援金ナビ">
       <Stack spacing={2}>
-        <Card variant="outlined" style={cardStyle} onClick={() => navigate('/support-search')}>
+        <Card variant="outlined" style={cardStyle} onClick={() => navigate('/SupportSearch')}>
           <CardContent>
             <Typography variant="h5" style={{ fontWeight: 'bold' }}>
               支援金検索
@@ -27,7 +27,7 @@ export const TopPage: FC = () => {
             </Typography>
           </CardContent>
         </Card>
-        <Card variant="outlined" style={cardStyle} onClick={() => navigate('/data-top')}>
+        <Card variant="outlined" style={cardStyle} onClick={() => navigate('/DataTop')}>
           <CardContent>
             <Typography variant="h5" style={{ fontWeight: 'bold' }}>
               個人データの共有・受け取り
