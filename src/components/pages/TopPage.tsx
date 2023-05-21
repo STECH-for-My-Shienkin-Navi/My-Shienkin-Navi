@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MainLayout } from '../layout/MainLayout';
 import { Card, CardContent, Stack, Typography } from '@mui/material';
-import { CommonCard } from '../common/CommonCard';
 
 const cardStyle = {
   width: '90%',
@@ -14,9 +13,6 @@ const cardStyle = {
 
 export const TopPage: FC = () => {
   const navigate = useNavigate();
-  const handle = () => {
-    navigate('/SupportSearch');
-  };
 
   return (
     <MainLayout title="My支援金ナビ">
