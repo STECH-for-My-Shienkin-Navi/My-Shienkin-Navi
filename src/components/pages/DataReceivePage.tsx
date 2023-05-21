@@ -2,16 +2,26 @@ import { FC, useState } from 'react';
 import { MainLayout } from '../layout/MainLayout';
 import { Stack, Typography } from '@mui/material';
 import { TextField } from '@mui/material';
+import { Box } from '@mui/system';
+import { Col } from '../common/Col';
+import { CommonButton } from '../common/CommonButton';
 
 export const DataReceivePage: FC = () => {
   const [textValue, setTextValue] = useState<string>('');
   const [textError, setTextError] = useState<boolean>(false);
+  const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
+
+  const handle = () => {
+    console.log('clicked');
+  };
 
   const textValidation = (text: string) => {
     if (text === '') {
       setTextError(true);
+      setNextButtonIsDisabled(true);
     } else {
       setTextError(false);
+      setNextButtonIsDisabled(false);
     }
   };
 
@@ -26,7 +36,14 @@ export const DataReceivePage: FC = () => {
           textValidation(event.target.value);
         }} />
         {textError ? <p style={{color: "#FF0000"}}>共有リンクは必須入力です。</p> : <p>        </p>}
+        <CommonButton isText onClick={handle}>共有リンクの取得方法</CommonButton>
       </Stack>
+      <Box sx={{marginTop: "30px"}}>
+        <Col spacing={2}>
+          <CommonButton isDisabled={nextButtonIsDisabled} onClick={handle}>次へ</CommonButton>
+          <CommonButton isSecondary onClick={handle}>戻る</CommonButton>
+        </Col>
+      </Box>
     </MainLayout>
   );
 };
