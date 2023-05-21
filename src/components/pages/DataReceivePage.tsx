@@ -13,9 +13,18 @@ import { DialogTitle } from '@mui/material';
 import { DialogContent } from '@mui/material';
 import { DialogContentText } from '@mui/material';
 import { DialogActions } from '@mui/material';
+import { DataResultPage } from './DataResultPage';
+
+interface ReceiveResultData {
+  title: string;
+  subText: string;
+  isSuccess: boolean;
+  location: string;
+  isShare: number; //0:最初の画面へ戻る、1:支援金の検索へ進む
+};
 
 
-export const DataReceivePage: FC = () => {
+export const DataReceivePage:FC = () => {
   const navigate = useNavigate();
 
   const [textValue, setTextValue] = useState<string>('');
@@ -23,6 +32,27 @@ export const DataReceivePage: FC = () => {
   const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
 
   const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+
+  const [resultPageIsShow, setResultPageIsShow] = useState<boolean>(false);
+  const [resultData, setResultData] = useState<ReceiveResultData>({
+    title: '',
+    subText: '',
+    isSuccess: false,
+    location: '',
+    isShare: 0,
+  });
+
+  const receiveData = () => {
+    console.log('receiveDataメソッドがよばれました。');
+    setResultData({
+      title: '受け取り完了',
+      subText: 'データの受け取りが完了しました。',
+      isSuccess: true,
+      location: '/SupportSearch',
+      isShare: 1,
+    });
+    setResultPageIsShow(true);
+  }
 
   const handleClose = () => {
     setDialogOpen(false);
@@ -42,8 +72,13 @@ export const DataReceivePage: FC = () => {
     }
   };
 
-  return (
-    <MainLayout title="共有データの受け取り">
+  if (resultPageIsShow) {
+    return (
+      <DataResultPage title={resultData.title} subText={resultData.subText} isSuccess={resultData.isSuccess} location={resultData.location} isShare={resultData.isShare} />
+    )
+  } else {
+    return (
+      <MainLayout title="共有データの受け取り">
       {/*受信確認モーダル*/}
       <Dialog open={dialogOpen} onClose={handleClose}>
         <DialogTitle>受け取りデータ確認</DialogTitle>
@@ -57,7 +92,7 @@ export const DataReceivePage: FC = () => {
             </ul>
           </DialogContentText>
           <DialogActions>
-            <CommonButton isDisabled={false} onClick={handleClose}>はい</CommonButton>
+            <CommonButton isDisabled={false} onClick={receiveData}>はい</CommonButton>
             <CommonButton isSecondary onClick={handleClose}>いいえ</CommonButton>
           </DialogActions>
         </DialogContent>
@@ -84,5 +119,6 @@ export const DataReceivePage: FC = () => {
       </Box>
       </Box>
     </MainLayout>
-  );
+    )
+  }
 };
