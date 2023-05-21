@@ -1,18 +1,19 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { MainLayout } from '../layout/MainLayout';
-import { Checkbox, Stack, Typography } from '@mui/material';
-
+import {
+  Checkbox,
+  Stack,
+  Typography,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogActions,
+  DialogContentText,
+} from '@mui/material';
 import { Box } from '@mui/system';
 import { Col } from '../common/Col';
 import { CommonButton } from '../common/CommonButton';
-
-import { Dialog } from '@mui/material';
-import { DialogTitle } from '@mui/material';
-import { DialogContent } from '@mui/material';
-import { DialogContentText } from '@mui/material';
-import { DialogActions } from '@mui/material';
 
 const data = [
   {
@@ -66,7 +67,14 @@ export const DataSharePage: FC = () => {
             </ul>
           </DialogContentText>
           <DialogActions>
-            <CommonButton isDisabled={false} onClick={handleClose}>
+            <CommonButton
+              isDisabled={false}
+              onClick={() => {
+                handleClose();
+                // ToDo: 遷移実装
+                // navigate('/DataShareComplete');
+              }}
+            >
               はい
             </CommonButton>
             <CommonButton isSecondary onClick={handleClose}>
