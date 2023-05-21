@@ -7,6 +7,36 @@ import { useNavigate } from 'react-router-dom';
 import { CommonButton } from '../common/CommonButton';
 import { infoList } from '../../data/infoList';
 
+
+const OKChip = () => {
+  return (
+    <Chip
+      label="OK"
+      sx={{
+        color: 'white',
+        bgcolor: '#71D960',
+        borderRadius: '20px',
+        height: '22px',
+        width: '90px',
+      }}
+    />
+  );
+};
+const NGChip = () => {
+  return (
+    <Chip
+      label="NG"
+      sx={{
+        color: 'white',
+        bgcolor: '#FF4D4D',
+        borderRadius: '20px',
+        height: '22px',
+        width: '90px',
+      }}
+    />
+  );
+};
+
 export const SupportDetailPage: FC = () => {
   const navigator = useNavigate();
   const navList = [
@@ -21,34 +51,6 @@ export const SupportDetailPage: FC = () => {
       isSecondary: true,
     },
   ]
-  const OKChip = () => {
-    return (
-      <Chip
-        label="OK"
-        sx={{
-          color: 'white',
-          bgcolor: '#71D960',
-          borderRadius: '20px',
-          height: '22px',
-          width: '90px',
-        }}
-      />
-    );
-  };
-  const NGChip = () => {
-    return (
-      <Chip
-        label="NG"
-        sx={{
-          color: 'white',
-          bgcolor: '#FF4D4D',
-          borderRadius: '20px',
-          height: '22px',
-          width: '90px',
-        }}
-      />
-    );
-  };
   return (
     <MainLayout title="支援金の詳細">
       <Box>
@@ -89,7 +91,7 @@ export const SupportDetailPage: FC = () => {
                   isPrimary={item.isPrimary}
                   isSecondary={item.isSecondary}
                   onClick={() => {
-                    item.path && navigator(item.path);;
+                    item.path && navigator(item.path)
                   }}
                 >
                   {item.labele}
