@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { MainLayout } from '../layout/MainLayout';
 import { Box, Typography } from '@mui/material';
 import familyImg from '../../assets/familImg.png';
-import { WidthFull } from '@mui/icons-material';
 import { CommonButton } from '../common/CommonButton';
 import { Col } from '../common/Col';
 import { useNavigate } from 'react-router-dom';
