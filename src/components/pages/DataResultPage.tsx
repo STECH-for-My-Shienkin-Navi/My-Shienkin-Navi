@@ -17,7 +17,6 @@ type Props = {
 
 export const DataResultPage: FC<Props> = ({ title, subText, isSuccess, location, isShare }) => {
   const navigator = useNavigate();
-  isShare = 0;//本番は消す
 
   const navList = [
     {
@@ -31,19 +30,17 @@ export const DataResultPage: FC<Props> = ({ title, subText, isSuccess, location,
   ];
 
   return (
-    // <MainLayout title={title}>
-    <MainLayout title="共有完了">
+    <MainLayout title={title}>
       <Box sx={{ width: '100%'}}>
         <Typography align="left">
-          {/* {subText} */}
-          データの共有が完了しました。
+          {subText}
         </Typography>
         <Box sx={{ textAlign: 'center', mt: 15 }}>
-          {/* {isSuccess ? ( */}
+          {isSuccess ? (
             <img src={checkImg} loading="lazy" style={{ width: 100 }} alt="チェックマークのイラスト" />
-              {/* ) : (
+              ) : (
             <img src={crossImg} loading="lazy" style={{ width: 100 }} alt="バツマークのイラスト" />
-          )} */}
+          )}
         </Box>
         <Box sx={{ mx: 2, mt: 30 }}>
           <Col spacing={2}>
