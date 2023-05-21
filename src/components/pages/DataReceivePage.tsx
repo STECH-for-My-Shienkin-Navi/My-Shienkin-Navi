@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { MainLayout } from '../layout/MainLayout';
 import { Stack, Typography } from '@mui/material';
 import { TextField } from '@mui/material';
@@ -7,6 +8,8 @@ import { Col } from '../common/Col';
 import { CommonButton } from '../common/CommonButton';
 
 export const DataReceivePage: FC = () => {
+  const navigate = useNavigate();
+
   const [textValue, setTextValue] = useState<string>('');
   const [textError, setTextError] = useState<boolean>(false);
   const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
@@ -41,7 +44,7 @@ export const DataReceivePage: FC = () => {
       <Box sx={{marginTop: "30px"}}>
         <Col spacing={2}>
           <CommonButton isDisabled={nextButtonIsDisabled} onClick={handle}>次へ</CommonButton>
-          <CommonButton isSecondary onClick={handle}>戻る</CommonButton>
+          <CommonButton isSecondary onClick={() => navigate('/DataTop')}>戻る</CommonButton>
         </Col>
       </Box>
     </MainLayout>
