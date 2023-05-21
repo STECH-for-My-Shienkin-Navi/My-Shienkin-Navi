@@ -5,6 +5,7 @@ import { SupportSearchPage } from '../components/pages/SupportSearchPage';
 import { SupportListPage } from '../components/pages/SupportListPage';
 import { SupportDetailPage } from '../components/pages/SupportDetailPage';
 import { DataTopPage } from '../components/pages/DataTopPage';
+import { DataResultPage } from '../components/pages/DataResultPage';
 import { DataSharePage } from '../components/pages/DataSharePage';
 import { DataReceivePage } from '../components/pages/DataReceivePage';
 import { ErrorPage } from '../components/pages/ErrorPage';
@@ -19,6 +20,7 @@ export const Router: FC = () => {
         <Route path={'/SupportList'} element={<SupportListPage />} />
         <Route path={'/SupportDetail'} element={<SupportDetailPage />} />
         <Route path={'/DataTop'} element={<DataTopPage />} />
+        <Route path={'/DataResult'} element={<DataResultPage />} />
         <Route path={'/DataShare'} element={<DataSharePage />} />
         <Route path={'/DataReceive'} element={<DataReceivePage />} />
         <Route path={'/dev'} element={<Dev />} />
