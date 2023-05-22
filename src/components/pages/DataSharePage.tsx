@@ -15,7 +15,6 @@ import {
 import { Box } from '@mui/system';
 import { Col } from '../common/Col';
 import { CommonButton } from '../common/CommonButton';
-import { red } from '@mui/material/colors';
 
 const data = [
   {
