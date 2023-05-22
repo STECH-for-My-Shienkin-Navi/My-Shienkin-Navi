@@ -69,7 +69,7 @@ export const DataSharePage: FC = () => {
       isShare: 0,
     });
     setResultPageIsShow(true);
-  }
+  };
 
   const handleClose = () => {
     setDialogOpen(false);
@@ -78,7 +78,7 @@ export const DataSharePage: FC = () => {
   const checkHandle = (index: number) => {
     let checkedFlag = false;
     const setItem = CheckList.map((prevItem, activeIndex) => {
-      if(index === activeIndex ? !prevItem.isCheck : prevItem.isCheck) checkedFlag = true;
+      if (index === activeIndex ? !prevItem.isCheck : prevItem.isCheck) checkedFlag = true;
       return {
         label: prevItem.label,
         isCheck: index === activeIndex ? !prevItem.isCheck : prevItem.isCheck,
@@ -86,10 +86,10 @@ export const DataSharePage: FC = () => {
     });
     setCheckList([...setItem]);
     setNextButtonIsDisabled(!checkedFlag);
-    setCheckBoxError(!checkedFlag)
+    setCheckBoxError(!checkedFlag);
   };
 
-  if(resultPageIsShow) {
+  if (resultPageIsShow) {
     return (
       <DataResultPage
         title={resultData.title}
@@ -98,11 +98,51 @@ export const DataSharePage: FC = () => {
         location={resultData.location}
         isShare={resultData.isShare}
       />
-    )
+    );
   } else {
     return (
-      <MainLayout title="共有データの選択">
-        {/*共有確認モーダル*/}
+      <>
+        <MainLayout title="共有データの選択">
+          {/*共有確認モーダル*/}
+          <Box>
+            <Typography variant="body1" style={{ marginBottom: '20px' }}>
+              他の人へ共有したいデータの種類を選択してください。{' '}
+            </Typography>
+            <Typography variant="body1" style={{ fontWeight: 'bold' }}>
+              共有リンク <span style={{ color: '#FF0000' }}>必須</span>
+            </Typography>
+            <Stack>
+              {CheckList.map((item, index) => {
+                return (
+                  <Box key={item.label}>
+                    <Checkbox
+                      checked={item.isCheck}
+                      onChange={() => {
+                        checkHandle(index);
+                      }}
+                    />
+                    {item.label}
+                  </Box>
+                );
+              })}
+            </Stack>
+            <Typography variant="body1" sx={{ color: checkBoxError ? 'red' : 'white' }}>
+              1つ以上選択する必要があります。
+            </Typography>
+
+            <Box sx={{ marginTop: '30px', mx: 2, mt: 2 }}>
+              <Col spacing={2}>
+                <CommonButton onClick={() => setDialogOpen(true)} isDisabled={nextButtonIsDisabled}>
+                  次へ
+                </CommonButton>
+                <CommonButton isSecondary onClick={() => navigate('/DataTop')}>
+                  戻る
+                </CommonButton>
+              </Col>
+            </Box>
+          </Box>
+        </MainLayout>
+
         <Dialog open={dialogOpen} onClose={handleClose}>
           <DialogTitle>共有データ確認</DialogTitle>
           <DialogContent>
@@ -113,51 +153,14 @@ export const DataSharePage: FC = () => {
               </ul>
             </DialogContentText>
             <DialogActions>
-              <CommonButton onClick={handleSendData}>
-                はい
-              </CommonButton>
+              <CommonButton onClick={handleSendData}>はい</CommonButton>
               <CommonButton isSecondary onClick={handleClose}>
                 いいえ
               </CommonButton>
             </DialogActions>
           </DialogContent>
         </Dialog>
-  
-        <Typography variant="body1" style={{ marginBottom: '20px' }}>
-          他の人へ共有したいデータの種類を選択してください。{' '}
-        </Typography>
-        <Typography variant="body1" style={{ fontWeight: 'bold' }}>
-          共有リンク <span style={{ color: '#FF0000' }}>必須</span>
-        </Typography>
-        <Stack>
-          {CheckList.map((item, index) => {
-            return (
-              <Box key={item.label}>
-                <Checkbox
-                  checked={item.isCheck}
-                  onChange={() => {
-                    checkHandle(index);
-                  }}
-                />
-                {item.label}
-              </Box>
-            );
-          })}
-        </Stack>
-
-        <Typography variant='body1' sx={{color: "red"}}>
-          {checkBoxError ? "1つ以上選択する必要があります。" : ""}
-        </Typography>
-
-        <Box sx={{ marginTop: '30px', mx: 2, mt: 2 }}>
-          <Col spacing={2}>
-            <CommonButton onClick={() => setDialogOpen(true)} isDisabled={nextButtonIsDisabled}>次へ</CommonButton>
-            <CommonButton isSecondary onClick={() => navigate('/DataTop')}>
-              戻る
-            </CommonButton>
-          </Col>
-        </Box>
-      </MainLayout>
-    );  
+      </>
+    );
   }
 };
