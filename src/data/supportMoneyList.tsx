@@ -1,7 +1,7 @@
 export const supportMoneyList = [
     {
         title: '支援金名1',
-        contents: '改行できないよーうえ〜ん改行できないよーうえ〜ん',
+        contents: '内容1',
         path: '/SupportDetail',
     },
     {
