@@ -1,34 +1,26 @@
 export const temporaryMoneyList = [
     {
-        title: '（公）臨時給付金1',
+        title: '奨学金',
         path: '/SupportList',
     },
     {
-        title: '（公）臨時給付金2',
+        title: '学生ローン',
         path: '/SupportList',
     },
     {
-        title: '（公）臨時給付金3',
+        title: '給付金',
         path: '/SupportList',
     },
     {
-        title: '（公）臨時給付金4',
+        title: '奨学金返還免除制度',
         path: '/SupportList',
     },
     {
-        title: '（公）臨時給付金5',
+        title: '学生生活費貸与制度',
         path: '/SupportList',
     },
     {
-        title: '（公）臨時給付金6',
-        path: '/SupportList',
-    },
-    {
-        title: '（公）臨時給付金7',
-        path: '/SupportList',
-    },
-    {
-        title: '（公）臨時給付金8',
+        title: '特別支援教育費',
         path: '/SupportList',
     },
 ];
