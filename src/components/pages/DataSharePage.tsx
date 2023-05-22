@@ -48,6 +48,7 @@ export const DataSharePage: FC = () => {
 
   const [CheckList, setCheckList] = useState(data);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
 
   const [resultPageIsShow, setResultPageIsShow] = useState<boolean>(false);
   const [resultData, setResultData] = useState<ReceiveResultData>({
@@ -74,13 +75,16 @@ export const DataSharePage: FC = () => {
   };
 
   const checkHandle = (index: number) => {
+    let checkedFlag = false;
     const setItem = CheckList.map((prevItem, activeIndex) => {
+      if(index === activeIndex ? !prevItem.isCheck : prevItem.isCheck) checkedFlag = true;
       return {
         label: prevItem.label,
         isCheck: index === activeIndex ? !prevItem.isCheck : prevItem.isCheck,
       };
     });
     setCheckList([...setItem]);
+    setNextButtonIsDisabled(!checkedFlag);
   };
 
   if(resultPageIsShow) {
@@ -147,7 +151,7 @@ export const DataSharePage: FC = () => {
         </Stack>
         <Box sx={{ marginTop: '30px', mx: 2, mt: 2 }}>
           <Col spacing={2}>
-            <CommonButton onClick={() => setDialogOpen(true)}>次へ</CommonButton>
+            <CommonButton onClick={() => setDialogOpen(true)} isDisabled={nextButtonIsDisabled}>次へ</CommonButton>
             <CommonButton isSecondary onClick={() => navigate('/DataTop')}>
               戻る
             </CommonButton>
