@@ -113,14 +113,7 @@ export const DataSharePage: FC = () => {
               </ul>
             </DialogContentText>
             <DialogActions>
-              <CommonButton onClick={handleSendData}
-                
-                // () => {
-                //   handleClose();
-                //   // ToDo: 遷移実装
-                //   // navigate('/DataShareComplete');
-                // }}
-              >
+              <CommonButton onClick={handleSendData}>
                 はい
               </CommonButton>
               <CommonButton isSecondary onClick={handleClose}>
