@@ -48,7 +48,7 @@ export const SupportDetailPage: FC = () => {
       path: '/SupportList',
       isSecondary: true,
     },
-  ]
+  ]  
   return (
     <MainLayout title="支援金の詳細">
       <Box>
@@ -63,7 +63,7 @@ export const SupportDetailPage: FC = () => {
                   <Typography variant="h5">{item.title}</Typography>
                   {item.contents.map((content, index) => {
                     return (
-                      <Box key={item.title}>
+                      <Box key={content}>
                         {item.isURL ? (
                           <Typography sx={{ pl: 2 }}><a href="https://www.〇〇.com">{content}</a></Typography>
                         ) : (
@@ -82,7 +82,7 @@ export const SupportDetailPage: FC = () => {
         </Box>
         <Box sx={{ mx: 2, mt: 8 }}>
           <Col spacing={2}>
-            {navList.map((item) => {
+            {navList.map((item, index) => {
               return (
                 <CommonButton
                   key={item.label}
@@ -91,6 +91,7 @@ export const SupportDetailPage: FC = () => {
                   onClick={() => {
                     item.path && navigator(item.path)
                   }}
+                  isDisabled={index === 0 ? !infoList.map(item => item.status?.every(status => status === true)).every(statusList => statusList === true || statusList === undefined) : false}
                 >
                   {item.label}
                 </CommonButton>
