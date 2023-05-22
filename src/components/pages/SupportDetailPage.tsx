@@ -91,7 +91,7 @@ export const SupportDetailPage: FC = () => {
                   onClick={() => {
                     item.path && navigator(item.path)
                   }}
-                  isDisabled={index === 0 ? !infoList.map(item => item.status?.every(status => status === true)).includes(true) : false}
+                  isDisabled={index === 0 ? !infoList.map(item => item.status?.every(status => status === true)).every(statusList => statusList === true || statusList === undefined) : false}
                 >
                   {item.label}
                 </CommonButton>
