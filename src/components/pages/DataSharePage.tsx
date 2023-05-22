@@ -15,6 +15,7 @@ import {
 import { Box } from '@mui/system';
 import { Col } from '../common/Col';
 import { CommonButton } from '../common/CommonButton';
+import { red } from '@mui/material/colors';
 
 const data = [
   {
@@ -48,6 +49,7 @@ export const DataSharePage: FC = () => {
 
   const [CheckList, setCheckList] = useState(data);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [checkBoxError, setCheckBoxError] = useState(true);
   const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
 
   const [resultPageIsShow, setResultPageIsShow] = useState<boolean>(false);
@@ -85,6 +87,7 @@ export const DataSharePage: FC = () => {
     });
     setCheckList([...setItem]);
     setNextButtonIsDisabled(!checkedFlag);
+    setCheckBoxError(!checkedFlag)
   };
 
   if(resultPageIsShow) {
@@ -149,6 +152,11 @@ export const DataSharePage: FC = () => {
             );
           })}
         </Stack>
+
+        <Typography variant='body1' sx={{color: "red"}}>
+          {checkBoxError ? "1つ以上選択する必要があります。" : ""}
+        </Typography>
+
         <Box sx={{ marginTop: '30px', mx: 2, mt: 2 }}>
           <Col spacing={2}>
             <CommonButton onClick={() => setDialogOpen(true)} isDisabled={nextButtonIsDisabled}>次へ</CommonButton>
