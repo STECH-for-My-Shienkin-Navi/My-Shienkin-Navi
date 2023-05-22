@@ -15,10 +15,9 @@ const OKChip = () => {
       sx={{
         color: 'white',
         bgcolor: '#71D960',
-        borderRadius: '20px',
         height: '22px',
-        width: '90px',
       }}
+      style={{ maxWidth: '90px', minWidth: '90px' }}
     />
   );
 };
@@ -29,10 +28,10 @@ const NGChip = () => {
       sx={{
         color: 'white',
         bgcolor: '#FF4D4D',
-        borderRadius: '20px',
         height: '22px',
         width: '90px',
       }}
+      style={{ maxWidth: '90px', minWidth: '90px' }}
     />
   );
 };
