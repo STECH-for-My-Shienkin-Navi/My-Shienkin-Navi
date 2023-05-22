@@ -20,27 +20,27 @@ export const SupportSearchPage: FC = () => {
           <Typography variant="h5">おすすめ</Typography>
           <Box
             sx={{
-              display: "flex",
-              alignItems: "“flex-start”",
-              justifyContent: "flex-start",
-              gap: "10px",
-              overflowX: "scroll",
-              width: "320px",
-              padding: "10px",
+              display: 'flex',
+              alignItems: '“flex-start”',
+              justifyContent: 'flex-start',
+              gap: '10px',
+              overflowX: 'scroll',
+              width: '320px',
+              padding: '10px',
             }}
           >
             {supportMoneyList.map((item) => {
               return (
-                <Box key={item.title} sx={{ maxWidth: "200px", minWidth: "200px" }}>
+                <Box key={item.title} sx={{ maxWidth: '200px', minWidth: '200px' }}>
                   <CommonCard onClick={() => navigator(item.path)} title={item.title}>
-                    <Box sx={{height: "100px"}}>
-                      <Typography sx={{ lineBreak: "loose", whiteSpace: "normal"}}>
+                    <Box sx={{ height: '100px' }}>
+                      <Typography sx={{ lineBreak: 'loose', whiteSpace: 'normal' }}>
                         {item.contents}
                       </Typography>
                     </Box>
                   </CommonCard>
                 </Box>
-              )
+              );
             })}
           </Box>
         </Box>
@@ -60,7 +60,7 @@ export const SupportSearchPage: FC = () => {
                   >
                     {item.title}
                   </CommonButton>
-                )
+                );
               })}
             </Col>
           </Box>

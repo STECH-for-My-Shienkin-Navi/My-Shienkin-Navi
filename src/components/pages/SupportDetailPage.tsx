@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { CommonButton } from '../common/CommonButton';
 import { infoList } from '../../data/infoList';
 
-
 const OKChip = () => {
   return (
     <Chip
@@ -48,7 +47,7 @@ export const SupportDetailPage: FC = () => {
       path: '/SupportList',
       isSecondary: true,
     },
-  ]  
+  ];
   return (
     <MainLayout title="支援金の詳細">
       <Box>
@@ -65,18 +64,27 @@ export const SupportDetailPage: FC = () => {
                     return (
                       <Box key={content}>
                         {item.isURL ? (
-                          <Typography sx={{ pl: 2 }}><a href="https://www.〇〇.com">{content}</a></Typography>
+                          <Typography sx={{ pl: 2 }}>
+                            <a href="https://www.〇〇.com">{content}</a>
+                          </Typography>
                         ) : (
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '50px' }}>
+                          <Box
+                            sx={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              gap: '50px',
+                            }}
+                          >
                             <Typography sx={{ pl: 2 }}>{content}</Typography>
                             {item.status && (item.status[index] ? <OKChip /> : <NGChip />)}
                           </Box>
                         )}
                       </Box>
-                    )
+                    );
                   })}
                 </Box>
-              )
+              );
             })}
           </Col>
         </Box>
@@ -89,9 +97,15 @@ export const SupportDetailPage: FC = () => {
                   isPrimary={item.isPrimary}
                   isSecondary={item.isSecondary}
                   onClick={() => {
-                    item.path && navigator(item.path)
+                    item.path && navigator(item.path);
                   }}
-                  isDisabled={index === 0 ? !infoList.map(item => item.status?.every(status => status === true)).every(statusList => statusList === true || statusList === undefined) : false}
+                  isDisabled={
+                    index === 0
+                      ? !infoList
+                          .map((item) => item.status?.every((status) => status === true))
+                          .every((statusList) => statusList === true || statusList === undefined)
+                      : false
+                  }
                 >
                   {item.label}
                 </CommonButton>
