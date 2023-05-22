@@ -48,7 +48,7 @@ export const DataSharePage: FC = () => {
 
   const [CheckList, setCheckList] = useState(data);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [checkBoxError, setCheckBoxError] = useState(true);
+  const [checkBoxError, setCheckBoxError] = useState(false);
   const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
 
   const [resultPageIsShow, setResultPageIsShow] = useState<boolean>(false);
