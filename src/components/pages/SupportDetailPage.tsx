@@ -63,7 +63,7 @@ export const SupportDetailPage: FC = () => {
                   <Typography variant="h5">{item.title}</Typography>
                   {item.contents.map((content, index) => {
                     return (
-                      <Box key={item.title}>
+                      <Box key={content}>
                         {item.isURL ? (
                           <Typography sx={{ pl: 2 }}><a href="https://www.〇〇.com">{content}</a></Typography>
                         ) : (
