@@ -29,7 +29,6 @@ const NGChip = () => {
         color: 'white',
         bgcolor: '#FF4D4D',
         height: '22px',
-        width: '90px',
       }}
       style={{ maxWidth: '90px', minWidth: '90px' }}
     />
