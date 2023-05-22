@@ -17,19 +17,19 @@ import { CommonButton } from '../common/CommonButton';
 
 const data = [
   {
-    label: '選択肢1',
+    label: '税・所得',
     isCheck: false,
   },
   {
-    label: '選択肢2',
+    label: '年金',
     isCheck: false,
   },
   {
-    label: '選択肢3',
+    label: '世帯情報',
     isCheck: false,
   },
   {
-    label: '選択肢4',
+    label: '医療保険',
     isCheck: false,
   },
 ];
