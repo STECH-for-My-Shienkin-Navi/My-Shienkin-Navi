@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  title: My支援金ナビ
+  description: マイナポータルハッカソンの作品「My支援金ナビ」のAPI仕様書です。
+  version: 0.1.0
+servers:
+  - url: http://example.com/
+tags:
+  - name: "マイナポータル"
+    description: "マイナポータルのモックAPI"
+  - name: "データ共有"
+    description: "My支援金ナビのデータ共有にかかるAPI"
+  - name: "支援金情報"
+    description: "支援金の一覧取得や検索にかかるAPI"
+paths:
+  /portalMock:
+    get:
+      tags:
+        - "マイナポータル"
+      summary: "取得した個人情報を返す"
+      description: "リクエストで指定された項目について、対応した個人情報をkey-value形式でレスポンスする。"
+      parameters: 
+        - in: query
+          name: req
+          schema:
+            type: string
+            example: "name+add+money"
+          description: "取得したい情報を＋区切りで指定する"
+      responses:
+        '200':
+          description: "正常に取得した情報を返却する。存在しない項目はレスポンスしない。"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: "山田 太郎"
+                  add:
+                    type: string
+                    example: "東京都中央区"
+                  money:
+                    type: integer
+                    format: int64
+                    example: 100000000
+  /data:
+    get:
+      tags:
+        - "データ共有"
+      summary: "サーバ上の個人情報を取得する"
+      description: "クエリパラメータで指定した共有コードを元に、個人情報を取得する"
+      parameters:
+        - in: query
+          required: true
+          name: shareCode
+          schema:
+            type: string
+            example: "aaaaaaa_aaaaa"
+          description: "shareCodeのパラメータにより、取得する個人情報の対象を識別する。"
+      responses:
+        '200':
+          description: "サーバから正常に個人情報を取得した際のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: "山田 太郎"
+                  add:
+                    type: string
+                    example: "東京都中央区"
+                  money:
+                    type: integer
+                    format: int64
+                    example: 100000000
+        '404':
+          description: "shareCodeで指定したリソースが見つからない際のレスポンス"
+    post:
+      tags:
+        - "データ共有"
+      summary: "個人情報をサーバに登録する"
+      description: "息子などと共有する個人情報を、サーバに共有する。"
+      requestBody:
+        description: "共有する個人情報のデータを、Object形式で送信する。"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "山田 太郎"
+                add:
+                  type: string
+                  example: "東京都中央区"
+                money:
+                  type: integer
+                  format: int64
+                  example: 100000000
+      responses:
+        '200':
+          description: "アップロードが正常に完了した際のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shareCode:
+                    type: string
+                    example: "aaaaaaa_aaaaa"
