@@ -2,7 +2,6 @@ import {PingController} from './controller/PingController';
 import {PortalMockController} from './controller/PortalMockController';
 import { DataController } from './controller/DataController';
 
-
 import * as functions from 'firebase-functions'
 import * as admin from 'firebase-admin'
 
