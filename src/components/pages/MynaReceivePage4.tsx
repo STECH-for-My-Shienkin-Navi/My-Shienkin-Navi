@@ -42,30 +42,30 @@ export const MynaReceivePage4: FC = () => {
           選択された以下の情報を取得しました。
         </Typography>
         <Box sx={{ textAlign: 'center', marginTop: "30px" }}>
-        <TableContainer>
-            <Table aria-label="simple table" sx={{ maxWidth: "400px" }}>
-        <TableHead>
-          <TableRow>
-            <TableCell align='left'>情報名</TableCell>
-            <TableCell align="right">大カテゴリ</TableCell>
-            <TableCell align="right">カテゴリ</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-            {listData.map((data, index) => {
-                return (
-                    <TableRow
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell align="left" sx={{minWidth: "150px"}}>{data.infoname}</TableCell>
-                <TableCell align="right">{data.largeCategory}</TableCell>
-                <TableCell align="right">{data.category}</TableCell>
-              </TableRow>
-                )
-            })}
-        </TableBody>
-      </Table>
-    </TableContainer>
+            <TableContainer>
+                <Table aria-label="simple table" sx={{ maxWidth: "400px" }}>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align='left'>情報名</TableCell>
+                            <TableCell align="right">大カテゴリ</TableCell>
+                            <TableCell align="right">カテゴリ</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {listData.map((data, index) => {
+                            return (
+                                <TableRow
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                    <TableCell align="left" sx={{minWidth: "150px"}}>{data.infoname}</TableCell>
+                                    <TableCell align="right">{data.largeCategory}</TableCell>
+                                    <TableCell align="right">{data.category}</TableCell>
+                                </TableRow>
+                            )
+                        })}
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </Box>
         <Box sx={{ mx: 2, mt: 30 }}>
           <Col spacing={2}>
