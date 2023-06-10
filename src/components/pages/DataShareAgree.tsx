@@ -24,6 +24,7 @@ export const DataShareAgreePage: FC = () => {
   const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
   const [isCheck, setIsCheck] = useState<boolean>(false);
   const [checkBoxError, setCheckBoxError] = useState(false);
+  
   let selectShare = [true,true,false,false]; //前の画面で選択されたデータの番号を受け取る
   const agreeList = ['所得・個人住民税情報', '年金情報', '世帯情報', '医療保険情報'];
 
