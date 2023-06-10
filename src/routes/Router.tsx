@@ -10,6 +10,7 @@ import { DataReceivePage } from '../components/pages/DataReceivePage';
 import { ErrorPage } from '../components/pages/ErrorPage';
 import { Dev } from '../components/pages/Dev';
 import { DataShareAgreePage } from '../components/pages/DataShareAgree';
+import { Loading, SampleLoading } from '../components/loading';
 
 export const Router: FC = () => {
   return (
@@ -25,6 +26,7 @@ export const Router: FC = () => {
         <Route path={'/dev'} element={<Dev />} />
         <Route path={'/*'} element={<ErrorPage />} />
         <Route path={'/DataShareAgree'} element={<DataShareAgreePage />} />
+        <Route path={'/SampleLoading'} element={<SampleLoading />} />
       </Routes>
     </BrowserRouter>
   );
