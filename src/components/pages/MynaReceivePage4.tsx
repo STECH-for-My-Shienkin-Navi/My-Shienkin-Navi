@@ -36,31 +36,10 @@ export const MynaReceivePage4: FC = () => {
     <MainLayout title="データ取得結果">
       <Box>
         <Typography>
-          あなたの自己情報を、他の方（同世帯）と一時的に共有することができます。
-          <br />
-          また、他の方に共有されたデータを受け取ることができます。
+          選択した以下の情報を取得しました。
         </Typography>
         <Box sx={{ textAlign: 'center' }}>
-          <img src={familyImg} loading="lazy" style={{ width: 250 }} alt="家族のイラスト" />
-        </Box>
-        <Box sx={{ mx: 2, mt: 2 }}>
-          <Col spacing={2}>
-            {navList.map((item) => {
-              return (
-                <CommonButton
-                  key={item.labele}
-                  isPrimary={item.isPrimary}
-                  isSecondary={item.isSecondary}
-                  isText={item.isText}
-                  onClick={() => {
-                    navigator(item.path);
-                  }}
-                >
-                  {item.labele}
-                </CommonButton>
-              );
-            })}
-          </Col>
+          あああああ
         </Box>
       </Box>
     </MainLayout>
