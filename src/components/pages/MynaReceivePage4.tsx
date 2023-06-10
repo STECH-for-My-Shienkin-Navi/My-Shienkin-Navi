@@ -11,8 +11,9 @@ export const MynaReceivePage4: FC = () => {
 
   const navList = [
     {
-      label: '支援金の検索へ進む',
+      label: '共有リンク作成',
       isPrimary: true,
+      location: ""
     },
   ];
 
@@ -72,7 +73,7 @@ export const MynaReceivePage4: FC = () => {
               key={navList[0].label}
               isPrimary={navList[0].isPrimary}
               onClick={() => {
-                navigator("/DataShare");
+                navigator(navList[0].location);
               }}
             >
               {navList[0].label}
