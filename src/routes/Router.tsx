@@ -9,6 +9,7 @@ import { DataSharePage } from '../components/pages/DataSharePage';
 import { DataReceivePage } from '../components/pages/DataReceivePage';
 import { ErrorPage } from '../components/pages/ErrorPage';
 import { Dev } from '../components/pages/Dev';
+import { PasswordEntryPage } from '../components/pages/PasswordEntryPage';
 
 export const Router: FC = () => {
   return (
@@ -22,6 +23,7 @@ export const Router: FC = () => {
         <Route path={'/DataShare'} element={<DataSharePage />} />
         <Route path={'/DataReceive'} element={<DataReceivePage />} />
         <Route path={'/dev'} element={<Dev />} />
+        <Route path={'/PasswordEntry'} element={<PasswordEntryPage />} />
         <Route path={'/*'} element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
