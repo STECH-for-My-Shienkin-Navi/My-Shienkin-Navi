@@ -24,7 +24,7 @@ export const DataShareAgreePage: FC = () => {
   const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
   const [isCheck, setIsCheck] = useState<boolean>(false);
   const [checkBoxError, setCheckBoxError] = useState(true);
-  const [selectShare, setSelectShare] = useState<number>(0);//前の画面で選択されたデータの番号を受け取る
+  let selectShare = [true,true,false,false]; //前の画面で選択されたデータの番号を受け取る
   const agreeList = ['所得・個人住民税情報', '年金情報', '世帯情報', '医療保険情報'];
 
   const checkHandle = () => {
@@ -41,7 +41,7 @@ export const DataShareAgreePage: FC = () => {
             マイナポータルデモアプリのワクチン接種情報表示のためにマイナポータルを通じて、以下の情報を取得します。
           </Typography>
           <ul>
-            <li>{agreeList[selectShare]}</li>
+            {agreeList.map((item, index) => (selectShare[index] ? <li key={index}>{item}</li> : null))}
           </ul>
           <Typography variant="body1" style={{ marginBottom: '40px', marginTop: '40px' }}>
             マイナポータルの利用規約に同意いただき、上記情報をマイナポータルデモアプリに提供する場合、マイナンバーカードを利用した本人確認を行います。
