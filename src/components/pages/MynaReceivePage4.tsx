@@ -1,17 +1,10 @@
 import { FC } from 'react';
 import { MainLayout } from '../layout/MainLayout';
-import { Box, Typography } from '@mui/material';
-import familyImg from '../../assets/familImg.png';
+import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { CommonButton } from '../common/CommonButton';
 import { Col } from '../common/Col';
 import { useNavigate } from 'react-router-dom';
 
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 
 export const MynaReceivePage4: FC = () => {
   const navigator = useNavigate();
