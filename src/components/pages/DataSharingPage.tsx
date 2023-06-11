@@ -6,8 +6,8 @@ import { Col } from '../common/Col';
 
 
 type Props = {
-    url: string;
-  };
+  url: string;
+};
 
 export const DataSharingPage: FC<Props> = ({url}) => {
   const navList = [
