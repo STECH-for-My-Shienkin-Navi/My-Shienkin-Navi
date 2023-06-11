@@ -52,11 +52,11 @@ export const MynaReceivePage4: FC = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {listData.map((data, index) => {
+                        {listData.map((data) => {
                             return (
                                 <TableRow
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                    key={index}>
+                                    key={data.infoname}>
                                     <TableCell align="left" sx={{minWidth: "150px"}}>{data.infoname}</TableCell>
                                     <TableCell align="right">{data.largeCategory}</TableCell>
                                     <TableCell align="right">{data.category}</TableCell>
