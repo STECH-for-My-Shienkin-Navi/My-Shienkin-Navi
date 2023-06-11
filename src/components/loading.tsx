@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { DataReceivePage } from '../components/pages/DataReceivePage';
 import { CircularProgress, Box } from '@mui/material';
 
