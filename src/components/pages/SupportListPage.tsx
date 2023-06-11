@@ -30,7 +30,7 @@ export const SupportListPage: FC = () => {
       <Stack sx={{ width: '100%' }} spacing={3}>
         {currentList.map((item, index) => {
           return (
-            <CommonCard key={index} title={item.title} onClick={() => navigate(item.path)}>
+            <CommonCard key={item.title} title={item.title} onClick={() => navigate(item.path)}>
               <Typography variant="body1" sx={{ marginBottom: '20px' }}>
                 {item.contents}
               </Typography>
