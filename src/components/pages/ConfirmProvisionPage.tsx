@@ -45,7 +45,7 @@ export const ConfirmProvisionPage: FC = () => {
             <Col spacing={2}>
               <CommonButton isPrimary onClick={ async () => {
                 setIsLoading(true);
-                var reqURL = 'http://127.0.0.1:5001/my-shienkin-navi-67cc2/us-central1/portalMock?req=';
+                var reqURL = 'https://us-central1-my-shienkin-navi-67cc2.cloudfunctions.net/portalMock?req=';
                 CheckList.map((elm) => {
                   if(elm.isCheck) reqURL += id2Query[elm.id-1] + ',';
                 })
@@ -53,7 +53,7 @@ export const ConfirmProvisionPage: FC = () => {
                 // axiosでマイナポータルのモックからデータを取得するリクエストを送信
                 const requestResult = await axios.get(reqURL);
                 setIsLoading(false);
-                console.log(requestResult);
+                console.log(requestResult.data);
 
                 navigate('/MynaReceivePage4');
               }}>

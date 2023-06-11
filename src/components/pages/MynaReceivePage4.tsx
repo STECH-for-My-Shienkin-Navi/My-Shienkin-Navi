@@ -98,13 +98,13 @@ export const MynaReceivePage4: FC = () => {
                 isPrimary={navList[0].isPrimary}
                 onClick={ async () => { // 共有リンク作成が押されたときの処理
                   setIsLoading(true);
-                  var reqURL = 'http://127.0.0.1:5001/my-shienkin-navi-67cc2/us-central1/data';
+                  var reqURL = 'https://us-central1-my-shienkin-navi-67cc2.cloudfunctions.net/data';
 
                   // axiosで共有データをアップロード
                   const requestResult = await axios.post(reqURL, sampleData);
                   setIsLoading(false);
 
-                  const shareLink = 'http://127.0.0.1:5001/my-shienkin-navi-67cc2/us-central1/data?shareCode=' + requestResult.data['shareCode'];
+                  const shareLink = 'https://us-central1-my-shienkin-navi-67cc2.cloudfunctions.net/data?shareCode=' + requestResult.data['shareCode'];
                   console.log(shareLink);
 
                   navigator(navList[0].location);
