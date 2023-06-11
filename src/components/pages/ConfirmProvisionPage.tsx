@@ -35,10 +35,10 @@ export const ConfirmProvisionPage: FC = () => {
 
           <Box sx={{ marginTop: '40px', mx: 2, mt: 6 }}>
             <Col spacing={2}>
-              <CommonButton isPrimary onClick={() => navigate('/')}>
+              <CommonButton isPrimary onClick={() => navigate('/DataSharing')}>
                 データ取得
               </CommonButton>
-              <CommonButton isSecondary onClick={() => navigate('/DataTop')}>
+              <CommonButton isSecondary onClick={() => navigate('/SelectGettingDataPage')}>
                 キャンセル
               </CommonButton>
             </Col>

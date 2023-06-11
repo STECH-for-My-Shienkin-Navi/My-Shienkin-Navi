@@ -80,12 +80,12 @@ export const DataShareAgreePage: FC = () => {
           <Box sx={{ marginTop: '30px', mx: 2, mt: 2 }}>
             <Col spacing={2}>
               <CommonButton
-                onClick={() => navigate('/DataShare')}
+                onClick={() => navigate('/PasswordEntry')}
                 isDisabled={nextButtonIsDisabled}
               >
                 次へ
               </CommonButton>
-              <CommonButton isSecondary onClick={() => navigate('/DataShare')}>
+              <CommonButton isSecondary onClick={() => navigate('/SelectGettingDataPage')}>
                 戻る
               </CommonButton>
             </Col>

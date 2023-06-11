@@ -52,12 +52,12 @@ export const PasswordEntryPage: FC = () => {
             <Col spacing={2}>
               <CommonButton
                 isDisabled={nextButtonIsDisabled}
-                onClick={() => navigate('/DataTop', { replace: true })}
+                onClick={() => navigate('/ConfirmProvision', { replace: true })}
               >
                 OK
               </CommonButton>
 
-              <CommonButton isSecondary onClick={() => navigate('/DataTop')}>
+              <CommonButton isSecondary onClick={() => navigate('/DataShareAgree')}>
                 キャンセル
               </CommonButton>
             </Col>
