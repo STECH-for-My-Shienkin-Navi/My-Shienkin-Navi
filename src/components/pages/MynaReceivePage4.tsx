@@ -13,7 +13,7 @@ export const MynaReceivePage4: FC = () => {
     {
       label: '共有リンク作成',
       isPrimary: true,
-      location: ""
+      location: "/DataSharing"
     },
   ];
 
