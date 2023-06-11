@@ -52,9 +52,11 @@ export const DataSharingPage: FC<Props> = ({url}) => {
         <Typography align="left">下記のリンクからデータを共有できます。</Typography>
         <Box sx={{ mx: 2, mt: 10 }}>
           <Col spacing={2}>
+          <Typography variant="body1" style={{ fontWeight: 'bold' }}>
+              共有リンク
+            </Typography>
             <Box sx={{ minWidth: 100, maxWidth: 400 }}>
               <TextField
-                label="共有リンク"
                 variant="outlined"
                 fullWidth
                 multiline
