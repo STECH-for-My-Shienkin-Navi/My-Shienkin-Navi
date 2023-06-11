@@ -16,7 +16,7 @@ export const ConfirmProvisionPage: FC = () => {
 
   const selectShare = [true, true, false, false, false]; //前の画面で選択されたデータの番号を受け取る
   const agreeList = ['所得・個人住民税情報', '年金情報', '公金受け取り口座', '世帯情報', '医療保険情報'];
-  const index2Query = ['income', 'pension', 'account', 'residentCard', 'specialHealth']
+  const id2Query = ['income', 'pension', 'account', 'residentCard', 'specialHealth']
 
   const [isLoading, setIsLoading] = useState(false); // ロード中かどうかの状態
 
@@ -46,9 +46,9 @@ export const ConfirmProvisionPage: FC = () => {
               <CommonButton isPrimary onClick={ async () => {
                 setIsLoading(true);
                 var reqURL = 'http://127.0.0.1:5001/my-shienkin-navi-67cc2/us-central1/portalMock?req=';
-                for(var i = 0; i < selectShare.length; i++) {
-                  if(selectShare[i]) reqURL += index2Query[i] + ',';
-                }
+                CheckList.map((elm) => {
+                  if(elm.isCheck) reqURL += id2Query[elm.id-1] + ',';
+                })
 
                 // axiosでマイナポータルのモックからデータを取得するリクエストを送信
                 const requestResult = await axios.get(reqURL);
