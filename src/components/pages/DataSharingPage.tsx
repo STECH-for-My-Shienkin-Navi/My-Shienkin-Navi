@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MainLayout } from '../layout/MainLayout';
 import { Box, Typography, TextField, Snackbar } from '@mui/material';
 import { CommonButton } from '../common/CommonButton';
@@ -10,6 +11,8 @@ type Props = {
 };
 
 export const DataSharingPage: FC<Props> = ({url}) => {
+  const navigate = useNavigate();
+
   const navList = [
     {
       label: 'リンクをコピー',
@@ -78,7 +81,7 @@ export const DataSharingPage: FC<Props> = ({url}) => {
               key={navList[1].label}
               isPrimary={navList[1].isPrimary}
               isSecondary={navList[1].isSecondary}
-              onClick={() => {}}
+              onClick={() => navigate('/DataTop')}
             >
               {navList[1].label}
             </CommonButton>
