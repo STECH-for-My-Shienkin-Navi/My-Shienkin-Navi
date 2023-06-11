@@ -11,6 +11,7 @@ import { ErrorPage } from '../components/pages/ErrorPage';
 import { Dev } from '../components/pages/Dev';
 import { PasswordEntryPage } from '../components/pages/PasswordEntryPage';
 import { DataShareAgreePage } from '../components/pages/DataShareAgree';
+import { ConfirmProvisionPage } from '../components/pages/ConfirmProvisionPage';
 
 export const Router: FC = () => {
   return (
@@ -27,6 +28,7 @@ export const Router: FC = () => {
         <Route path={'/PasswordEntry'} element={<PasswordEntryPage />} />
         <Route path={'/*'} element={<ErrorPage />} />
         <Route path={'/DataShareAgree'} element={<DataShareAgreePage />} />
+        <Route path={'/ConfirmProvision'} element={<ConfirmProvisionPage />} />
       </Routes>
     </BrowserRouter>
   );
