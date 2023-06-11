@@ -11,9 +11,9 @@ import axios from 'axios';
 export const ConfirmProvisionPage: FC = () => {
   const navigate = useNavigate();
 
-  const selectShare = [true, true, false, false]; //前の画面で選択されたデータの番号を受け取る
-  const agreeList = ['所得・個人住民税情報', '年金情報', '世帯情報', '医療保険情報'];
-  const index2Query = ['income', 'pension', 'residentCard', 'specialHealth']
+  const selectShare = [true, true, false, false, false]; //前の画面で選択されたデータの番号を受け取る
+  const agreeList = ['所得・個人住民税情報', '年金情報', '公金受け取り口座', '世帯情報', '医療保険情報'];
+  const index2Query = ['income', 'pension', 'account', 'residentCard', 'specialHealth']
 
   const [isLoading, setIsLoading] = useState(false); // ロード中かどうかの状態
 
