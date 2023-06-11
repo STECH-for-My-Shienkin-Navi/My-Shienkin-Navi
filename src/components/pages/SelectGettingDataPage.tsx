@@ -47,7 +47,7 @@ interface ReceiveResultData {
   isShare: number; //0:最初の画面へ戻る、1:支援金の検索へ進む
 }
 
-export const DataSharePage: FC = () => {
+export const SelectGettingDataPage: FC = () => {
   const navigate = useNavigate();
 
   const [CheckList, setCheckList] = useState(data);
@@ -64,15 +64,8 @@ export const DataSharePage: FC = () => {
     isShare: 0,
   });
 
-  const handleSendData = () => {
-    setResultData({
-      title: '共有完了',
-      subText: 'データの共有が完了しました。',
-      isSuccess: true,
-      location: '/',
-      isShare: 0,
-    });
-    setResultPageIsShow(true);
+  const handleSelectGetData = () => {
+    navigate('/DataShareAgree')
   };
 
   const handleClose = () => {
@@ -153,11 +146,17 @@ export const DataSharePage: FC = () => {
             <DialogContentText>以下のデータを共有します。よろしいですか？</DialogContentText>
             <DialogContentText>
               <ul>
-                <li>データ名: XXXX</li>
+                {CheckList.map((item, index) => {
+                  if(item.isCheck) {
+                    return (
+                      <li>{item.label}</li>
+                    );
+                  }
+                })}
               </ul>
             </DialogContentText>
             <DialogActions>
-              <CommonButton onClick={handleSendData}>はい</CommonButton>
+              <CommonButton onClick={handleSelectGetData}>はい</CommonButton>
               <CommonButton isSecondary onClick={handleClose}>
                 いいえ
               </CommonButton>
