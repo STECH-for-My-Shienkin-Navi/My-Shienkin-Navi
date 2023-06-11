@@ -18,19 +18,23 @@ import { CommonButton } from '../common/CommonButton';
 
 const data = [
   {
-    label: '税・所得',
+    label: '所得・個人住民税情報',
     isCheck: false,
   },
   {
-    label: '年金',
+    label: '国民年金・被用者年金の給付・保険料徴収の情報',
     isCheck: false,
   },
   {
-    label: '世帯情報',
+    label: '銀行名、支店名、口座番号、および口座名義カナなどの公金受取口座の情報',
     isCheck: false,
   },
   {
-    label: '医療保険',
+    label: '住民票関係情報',
+    isCheck: false,
+  },
+  {
+    label: '特定健診情報',
     isCheck: false,
   },
 ];
@@ -108,20 +112,20 @@ export const DataSharePage: FC = () => {
             <Typography variant="body1" style={{ marginBottom: '20px' }}>
               他の人へ共有したいデータの種類を選択してください。{' '}
             </Typography>
-            <Typography variant="body1" style={{ fontWeight: 'bold' }}>
+            <Typography variant="body1" style={{ fontWeight: 'bold', marginBottom: '20px' }}>
               共有リンク <span style={{ color: '#FF0000' }}>必須</span>
             </Typography>
             <Stack>
               {CheckList.map((item, index) => {
                 return (
-                  <Box key={item.label}>
+                  <Box key={item.label} display="flex" alignItems="center" marginBottom="10px">
                     <Checkbox
                       checked={item.isCheck}
                       onChange={() => {
                         checkHandle(index);
                       }}
                     />
-                    {item.label}
+                    <Typography style={{ alignSelf: 'center' }}>{item.label}</Typography>
                   </Box>
                 );
               })}
