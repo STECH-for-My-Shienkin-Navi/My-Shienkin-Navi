@@ -11,6 +11,7 @@ import { ErrorPage } from '../components/pages/ErrorPage';
 import { MynaReceivePage4 } from '../components/pages/MynaReceivePage4';
 import { Dev } from '../components/pages/Dev';
 import { DataShareAgreePage } from '../components/pages/DataShareAgree';
+import { Loading, SampleLoading } from '../components/loading';
 
 export const Router: FC = () => {
   return (
@@ -27,6 +28,7 @@ export const Router: FC = () => {
         <Route path={'/dev'} element={<Dev />} />
         <Route path={'/*'} element={<ErrorPage />} />
         <Route path={'/DataShareAgree'} element={<DataShareAgreePage />} />
+        <Route path={'/SampleLoading'} element={<SampleLoading />} />
       </Routes>
     </BrowserRouter>
   );
