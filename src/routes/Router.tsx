@@ -6,6 +6,7 @@ import { SupportListPage } from '../components/pages/SupportListPage';
 import { SupportDetailPage } from '../components/pages/SupportDetailPage';
 import { DataTopPage } from '../components/pages/DataTopPage';
 import { DataSharePage } from '../components/pages/DataSharePage';
+import { DataSharingPage } from '../components/pages/DataSharingPage';
 import { DataReceivePage } from '../components/pages/DataReceivePage';
 import { ErrorPage } from '../components/pages/ErrorPage';
 import { MynaReceivePage4 } from '../components/pages/MynaReceivePage4';
@@ -24,6 +25,7 @@ export const Router: FC = () => {
         <Route path={'/SupportDetail'} element={<SupportDetailPage />} />
         <Route path={'/DataTop'} element={<DataTopPage />} />
         <Route path={'/DataShare'} element={<DataSharePage />} />
+        <Route path={'/DataSharing'} element={<DataSharingPage url='sample.com' />} />
         <Route path={'/DataReceive'} element={<DataReceivePage />} />
         <Route path={'/MynaReceivePage4'} element={<MynaReceivePage4 />} />
         <Route path={'/dev'} element={<Dev />} />
