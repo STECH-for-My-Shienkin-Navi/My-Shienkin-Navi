@@ -8,6 +8,7 @@ import { DataTopPage } from '../components/pages/DataTopPage';
 import { DataSharePage } from '../components/pages/DataSharePage';
 import { DataReceivePage } from '../components/pages/DataReceivePage';
 import { ErrorPage } from '../components/pages/ErrorPage';
+import { MynaReceivePage4 } from '../components/pages/MynaReceivePage4';
 import { Dev } from '../components/pages/Dev';
 import { DataShareAgreePage } from '../components/pages/DataShareAgree';
 import { Loading, SampleLoading } from '../components/loading';
@@ -23,6 +24,7 @@ export const Router: FC = () => {
         <Route path={'/DataTop'} element={<DataTopPage />} />
         <Route path={'/DataShare'} element={<DataSharePage />} />
         <Route path={'/DataReceive'} element={<DataReceivePage />} />
+        <Route path={'/MynaReceivePage4'} element={<MynaReceivePage4 />} />
         <Route path={'/dev'} element={<Dev />} />
         <Route path={'/*'} element={<ErrorPage />} />
         <Route path={'/DataShareAgree'} element={<DataShareAgreePage />} />
