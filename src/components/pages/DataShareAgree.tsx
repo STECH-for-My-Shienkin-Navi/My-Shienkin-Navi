@@ -39,7 +39,7 @@ export const DataShareAgreePage: FC = () => {
       <MainLayout title="STEP1: 本人同意と本人確認">
         <Box>
           <Typography variant="body1" style={{ marginBottom: '40px' }}>
-            マイナポータルデモアプリのワクチン接種情報表示のためにマイナポータルを通じて、以下の情報を取得します。
+          My支援金ナビにおけるデータ共有機能提供のためにマイナポータルを通じて、以下の情報を取得します。
           </Typography>
           <ul>
             {CheckList.map((item, index) =>
@@ -47,7 +47,7 @@ export const DataShareAgreePage: FC = () => {
             )}
           </ul>
           <Typography variant="body1" style={{ marginBottom: '40px', marginTop: '40px' }}>
-            マイナポータルの利用規約に同意いただき、上記情報をマイナポータルデモアプリに提供する場合、マイナンバーカードを利用した本人確認を行います。
+            マイナポータルの利用規約に同意いただき、上記情報をMy支援金ナビに提供する場合、マイナンバーカードを利用した本人確認を行います。
           </Typography>
           <Typography variant="body1" style={{ fontWeight: 'bold' }}>
             <span style={{ color: '#FF0000' }}>必須</span>
