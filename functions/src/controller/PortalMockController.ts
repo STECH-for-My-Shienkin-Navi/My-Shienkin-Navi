@@ -4,6 +4,8 @@ import { Request, Response } from "firebase-functions";
 import {AxiosResponse} from 'axios'
 
 export async function PortalMockController(req: Request, res: Response) {
+  res.set("Access-Control-Allow-Origin", "*");
+  
   var requestQuery = req.query.req;
 
   // リクエストクエリとダミー環境のパスとの対応付けを行うオブジェクト

@@ -44,6 +44,8 @@ DataController.use(cors({origin: true}));
 
 // GETリクエストの処理
 DataController.get('/', async (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
+  
   // shareCodeを取得
   const shareCode = req.query.shareCode;
 
@@ -111,6 +113,8 @@ DataController.get('/', async (req, res) => {
 
 // POSTリクエストの処理
 DataController.post('/', async (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
+  
   // 秘密鍵と暗号鍵を生成する
   var key = generateKeyPair(1024);
 
