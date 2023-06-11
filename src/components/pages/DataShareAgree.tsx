@@ -45,7 +45,7 @@ export const DataShareAgreePage: FC = () => {
       <MainLayout title="STEP1: 本人同意と本人確認">
         <Box>
           <Typography variant="body1" style={{ marginBottom: '40px' }}>
-            マイナポータルデモアプリのワクチン接種情報表示のためにマイナポータルを通じて、以下の情報を取得します。
+          My支援金ナビにおけるデータ共有機能提供のためにマイナポータルを通じて、以下の情報を取得します。
           </Typography>
           <ul>
             {agreeList.map((item, index) =>
