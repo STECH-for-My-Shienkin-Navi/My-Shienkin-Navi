@@ -9,6 +9,7 @@ import { DataSharePage } from '../components/pages/DataSharePage';
 import { DataReceivePage } from '../components/pages/DataReceivePage';
 import { ErrorPage } from '../components/pages/ErrorPage';
 import { Dev } from '../components/pages/Dev';
+import { DataShareAgreePage } from '../components/pages/DataShareAgree';
 
 export const Router: FC = () => {
   return (
@@ -23,6 +24,7 @@ export const Router: FC = () => {
         <Route path={'/DataReceive'} element={<DataReceivePage />} />
         <Route path={'/dev'} element={<Dev />} />
         <Route path={'/*'} element={<ErrorPage />} />
+        <Route path={'/DataShareAgree'} element={<DataShareAgreePage />} />
       </Routes>
     </BrowserRouter>
   );
