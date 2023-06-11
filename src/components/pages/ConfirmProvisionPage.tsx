@@ -20,7 +20,7 @@ export const ConfirmProvisionPage: FC = () => {
             <br />
             引き続き、情報提供手続きを実施いたします。
             <br />
-            マイナポータルデモアプリに
+            My支援金ナビに
             <br />
             以下の情報を提供してもよい場合、
             <br />
