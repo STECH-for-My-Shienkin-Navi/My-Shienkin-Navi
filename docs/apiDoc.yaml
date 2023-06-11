@@ -1,0 +1,148 @@
+openapi: 3.0.0
+info:
+  title: My支援金ナビ
+  description: マイナポータルハッカソンの作品「My支援金ナビ」のAPI仕様書です。
+  version: 0.1.0
+servers:
+  - url: http://example.com/
+tags:
+  - name: "マイナポータル"
+    description: "マイナポータルのモックAPI"
+  - name: "データ共有"
+    description: "My支援金ナビのデータ共有にかかるAPI"
+  - name: "支援金情報"
+    description: "支援金の一覧取得や検索にかかるAPI"
+paths:
+  /portalMock:
+    get:
+      tags:
+        - "マイナポータル"
+      summary: "取得した個人情報を返す"
+      description: "リクエストで指定された項目について、対応した個人情報をkey-value形式でレスポンスする。"
+      parameters: 
+        - in: query
+          name: req
+          schema:
+            type: string
+            example: "income,pension,account"
+          description: "取得したい情報をカンマ区切りで指定する"
+      responses:
+        '200':
+          description: "正常に取得した情報を返却する。存在しない項目はレスポンスしない。また、各レスポンスのフォーマットはマイナポータルAPIの仕様公開ページを参照。"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  income:
+                    type: object
+                  pension:
+                    type: object
+                  account:
+                    type: object
+                  residentCard:
+                    type: object
+                  specialHealth:
+                    type: object
+  /data:
+    get:
+      tags:
+        - "データ共有"
+      summary: "サーバ上の個人情報を取得する"
+      description: "クエリパラメータで指定した共有コードを元に、個人情報を取得する"
+      parameters:
+        - in: query
+          required: true
+          name: shareCode
+          schema:
+            type: string
+            example: "aaaaaaa_aaaaa"
+          description: "shareCodeのパラメータにより、取得する個人情報の対象を識別する。"
+      responses:
+        '200':
+          description: "サーバから正常に個人情報を取得した際のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: "山田 太郎"
+                  add:
+                    type: string
+                    example: "東京都中央区"
+                  money:
+                    type: integer
+                    format: int64
+                    example: 100000000
+        '404':
+          description: "shareCodeで指定したリソースが見つからない際のレスポンス"
+    post:
+      tags:
+        - "データ共有"
+      summary: "個人情報をサーバに登録する"
+      description: "息子などと共有する個人情報を、サーバに共有する。"
+      requestBody:
+        description: "共有する個人情報のデータを、Object形式で送信する。"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "山田 太郎"
+                add:
+                  type: string
+                  example: "東京都中央区"
+                money:
+                  type: integer
+                  format: int64
+                  example: 100000000
+      responses:
+        '200':
+          description: "アップロードが正常に完了した際のレスポンス"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shareCode:
+                    type: string
+                    example: "aaaaaaa_aaaaa"
+  /shien:
+    get:
+      tags:
+        - "支援金情報"
+      summary: "支援金の一覧を取得する"
+      description: "支援金の一覧を取得する。クエリを指定すると、その内容で取得される支援金の絞り込みを行う。"
+      parameters:
+        - in: query
+          name: income
+          schema:
+            type: integer
+          description: "収入情報を指定"
+      responses:
+        '200':
+          description: "支援金の一覧を返すレスポンス"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                          example: '特別支援教育費助成'
+                        contents:
+                          type: string
+                          example: '特別な支援が必要な子どもの教育費を助成する制度です。'
+                        path: 
+                          type: string
+                          example: '/SupportDetail'
