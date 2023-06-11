@@ -56,7 +56,7 @@ export const MynaReceivePage4: FC = () => {
                             return (
                                 <TableRow
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                    >
+                                    key={index}>
                                     <TableCell align="left" sx={{minWidth: "150px"}}>{data.infoname}</TableCell>
                                     <TableCell align="right">{data.largeCategory}</TableCell>
                                     <TableCell align="right">{data.category}</TableCell>
