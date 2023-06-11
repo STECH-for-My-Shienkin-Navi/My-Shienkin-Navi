@@ -4,16 +4,23 @@ import { Box, Typography } from '@mui/material';
 import { CommonButton } from '../common/CommonButton';
 import { Col } from '../common/Col';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Loading } from '../loading';
+import axios from 'axios';
 
 export const ConfirmProvisionPage: FC = () => {
   const navigate = useNavigate();
 
   const selectShare = [true, true, false, false]; //前の画面で選択されたデータの番号を受け取る
   const agreeList = ['所得・個人住民税情報', '年金情報', '世帯情報', '医療保険情報'];
+  const index2Query = ['income', 'pension', 'residentCard', 'specialHealth']
+
+  const [isLoading, setIsLoading] = useState(false); // ロード中かどうかの状態
 
   return (
     <>
       <MainLayout title="情報提供可否の確認">
+        {isLoading && <Loading />}
         <Box>
           <Typography sx={{ mt: 2, mb: 4 }}>
             マイナンバーカードの読み取りが完了しました。
@@ -35,7 +42,20 @@ export const ConfirmProvisionPage: FC = () => {
 
           <Box sx={{ marginTop: '40px', mx: 2, mt: 6 }}>
             <Col spacing={2}>
-              <CommonButton isPrimary onClick={() => navigate('/DataSharing')}>
+              <CommonButton isPrimary onClick={ async () => {
+                setIsLoading(true);
+                var reqURL = 'http://127.0.0.1:5001/my-shienkin-navi-67cc2/us-central1/portalMock?req=';
+                for(var i = 0; i < selectShare.length; i++) {
+                  if(selectShare[i]) reqURL += index2Query[i] + ',';
+                }
+
+                // axiosでマイナポータルのモックからデータを取得するリクエストを送信
+                const requestResult = await axios.get(reqURL);
+                setIsLoading(false);
+                console.log(requestResult);
+
+                navigate('/DataSharing');
+              }}>
                 データ取得
               </CommonButton>
               <CommonButton isSecondary onClick={() => navigate('/SelectGettingDataPage')}>
