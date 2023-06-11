@@ -42,6 +42,7 @@ export const ConfirmProvisionPage: FC = () => {
 
           <Box sx={{ marginTop: '40px', mx: 2, mt: 6 }}>
             <Col spacing={2}>
+<<<<<<< HEAD
               <CommonButton isPrimary onClick={ async () => {
                 setIsLoading(true);
                 var reqURL = 'http://127.0.0.1:5001/my-shienkin-navi-67cc2/us-central1/portalMock?req=';
@@ -56,9 +57,12 @@ export const ConfirmProvisionPage: FC = () => {
 
                 navigate('/DataSharing');
               }}>
+=======
+              <CommonButton isPrimary onClick={() => navigate('/MynaReceivePage4')}>
+>>>>>>> develop
                 データ取得
               </CommonButton>
-              <CommonButton isSecondary onClick={() => navigate('/SelectGettingDataPage')}>
+              <CommonButton isSecondary onClick={() => navigate('/SelectGettingData')}>
                 キャンセル
               </CommonButton>
             </Col>

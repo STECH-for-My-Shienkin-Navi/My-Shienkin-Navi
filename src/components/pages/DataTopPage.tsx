@@ -12,7 +12,7 @@ export const DataTopPage: FC = () => {
   const navList = [
     {
       labele: 'データを共有する',
-      path: '/SelectGettingDataPage',
+      path: '/SelectGettingData',
       isPrimary: true,
     },
     {
