@@ -8,7 +8,7 @@ import axios, {AxiosRequestConfig, AxiosResponse} from 'axios'
 const mynaPortalAPIKey = process.env.apiKey;
 const mynaPortalBaseURL = process.env.baseURL
 
-export function PostMynaPortalAPI(APIId: string, authCode: number = 1234): Promise<AxiosResponse> {
+export async function PostMynaPortalAPI(APIId: string, authCode: number = 1234): Promise<AxiosResponse> {
   // リクエストを作成
   const axiosReqOption: AxiosRequestConfig = {
     url: `${mynaPortalBaseURL}${APIId}`,
