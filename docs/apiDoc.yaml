@@ -112,3 +112,37 @@ paths:
                   shareCode:
                     type: string
                     example: "aaaaaaa_aaaaa"
+  /shien:
+    get:
+      tags:
+        - "支援金情報"
+      summary: "支援金の一覧を取得する"
+      description: "支援金の一覧を取得する。クエリを指定すると、その内容で取得される支援金の絞り込みを行う。"
+      parameters:
+        - in: query
+          name: income
+          schema:
+            type: integer
+          description: "収入情報を指定"
+      responses:
+        '200':
+          description: "支援金の一覧を返すレスポンス"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                          example: '特別支援教育費助成'
+                        contents:
+                          type: string
+                          example: '特別な支援が必要な子どもの教育費を助成する制度です。'
+                        path: 
+                          type: string
+                          example: '/SupportDetail'
