@@ -31,10 +31,10 @@ export const Router: FC = () => {
         <Route path={'/DataShareAgree'} element={<DataShareAgreePage />} />
         <Route path={'/PasswordEntry'} element={<PasswordEntryPage />} />
         <Route path={'/ConfirmProvision'} element={<ConfirmProvisionPage />} />
+        <Route path={'/MynaReceivePage4'} element={<MynaReceivePage4 />} />
         <Route path={'/DataSharing'} element={<DataSharingPage url='sample.com' />} />
         
         <Route path={'/DataReceive'} element={<DataReceivePage />} />
-        <Route path={'/MynaReceivePage4'} element={<MynaReceivePage4 />} />
         <Route path={'/dev'} element={<Dev />} />
         <Route path={'/*'} element={<ErrorPage />} />
         <Route path={'/SampleLoading'} element={<SampleLoading />} />
