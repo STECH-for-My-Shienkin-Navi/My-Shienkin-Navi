@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { MainLayout } from '../layout/MainLayout';
 import { CommonButton } from '../common/CommonButton';
 import { CommonCard } from '../common/CommonCard';
@@ -12,13 +12,25 @@ import LastPageIcon from '@mui/icons-material/LastPage';
 
 export const SupportListPage: FC = () => {
   const navigate = useNavigate();
+  const itemsPerPage = 4; // 1ページあたりのアイテム数
+  const [currentPage, setCurrentPage] = useState(0); // 現在のページ数
+  const [currentList, setCurrentList] = useState(supportMoneyList.slice(0, itemsPerPage)); // 現在表示するリスト
+
+  useEffect(() => {
+    // ページが変更された時に表示するリストを更新
+    const start = currentPage * itemsPerPage;
+    const end = start + itemsPerPage;
+    setCurrentList(supportMoneyList.slice(start, end));
+  }, [currentPage]);
+
+  const maxPage = Math.ceil(supportMoneyList.length / itemsPerPage) - 1; // 最大ページ数
 
   return (
     <MainLayout title="奨学金の一覧">
       <Stack sx={{ width: '100%' }} spacing={3}>
-        {supportMoneyList.map((item) => {
+        {currentList.map((item, index) => {
           return (
-            <CommonCard title={item.title} onClick={() => navigate(item.path)}>
+            <CommonCard key={index} title={item.title} onClick={() => navigate(item.path)}>
               <Typography variant="body1" sx={{ marginBottom: '20px' }}>
                 {item.contents}
               </Typography>
@@ -40,19 +52,25 @@ export const SupportListPage: FC = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <IconButton sx={{ border: '1px solid' }}>
+          <IconButton sx={{ border: '1px solid' }} onClick={() => setCurrentPage(0)}>
             <FirstPageIcon />
           </IconButton>
-          <IconButton sx={{ border: '1px solid' }}>
+          <IconButton
+            sx={{ border: '1px solid' }}
+            onClick={() => currentPage > 0 && setCurrentPage(currentPage - 1)}
+          >
             <NavigateBeforeIcon />
           </IconButton>
-          <Typography variant="body2" noWrap>
-            1 / 2
+          <Typography variant="body2" noWrap style={{ marginLeft: '18px' }}>
+            {currentPage + 1} / {maxPage + 1}
           </Typography>
-          <IconButton sx={{ border: '1px solid' }}>
+          <IconButton
+            sx={{ border: '1px solid' }}
+            onClick={() => currentPage < maxPage && setCurrentPage(currentPage + 1)}
+          >
             <NavigateNextIcon />
           </IconButton>
-          <IconButton sx={{ border: '1px solid' }}>
+          <IconButton sx={{ border: '1px solid' }} onClick={() => setCurrentPage(maxPage)}>
             <LastPageIcon />
           </IconButton>
         </Stack>
