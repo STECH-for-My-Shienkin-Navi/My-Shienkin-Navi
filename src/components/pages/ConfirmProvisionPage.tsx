@@ -38,7 +38,7 @@ export const ConfirmProvisionPage: FC = () => {
               <CommonButton isPrimary onClick={() => navigate('/DataSharing')}>
                 データ取得
               </CommonButton>
-              <CommonButton isSecondary onClick={() => navigate('/SelectGettingDataPage')}>
+              <CommonButton isSecondary onClick={() => navigate('/SelectGettingData')}>
                 キャンセル
               </CommonButton>
             </Col>

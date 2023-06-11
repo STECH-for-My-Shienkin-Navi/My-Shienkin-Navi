@@ -27,7 +27,7 @@ export const Router: FC = () => {
         <Route path={'/DataTop'} element={<DataTopPage />} />
 
         {/* データ共有に関わる一連のページ */}
-        <Route path={'/SelectGettingDataPage'} element={<SelectGettingDataPage />} />
+        <Route path={'/SelectGettingData'} element={<SelectGettingDataPage />} />
         <Route path={'/DataShareAgree'} element={<DataShareAgreePage />} />
         <Route path={'/PasswordEntry'} element={<PasswordEntryPage />} />
         <Route path={'/ConfirmProvision'} element={<ConfirmProvisionPage />} />

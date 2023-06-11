@@ -85,7 +85,7 @@ export const DataShareAgreePage: FC = () => {
               >
                 次へ
               </CommonButton>
-              <CommonButton isSecondary onClick={() => navigate('/SelectGettingDataPage')}>
+              <CommonButton isSecondary onClick={() => navigate('/SelectGettingData')}>
                 戻る
               </CommonButton>
             </Col>
