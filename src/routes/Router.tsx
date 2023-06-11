@@ -10,6 +10,7 @@ import { DataReceivePage } from '../components/pages/DataReceivePage';
 import { ErrorPage } from '../components/pages/ErrorPage';
 import { MynaReceivePage4 } from '../components/pages/MynaReceivePage4';
 import { Dev } from '../components/pages/Dev';
+import { PasswordEntryPage } from '../components/pages/PasswordEntryPage';
 import { DataShareAgreePage } from '../components/pages/DataShareAgree';
 import { Loading, SampleLoading } from '../components/loading';
 
@@ -26,6 +27,7 @@ export const Router: FC = () => {
         <Route path={'/DataReceive'} element={<DataReceivePage />} />
         <Route path={'/MynaReceivePage4'} element={<MynaReceivePage4 />} />
         <Route path={'/dev'} element={<Dev />} />
+        <Route path={'/PasswordEntry'} element={<PasswordEntryPage />} />
         <Route path={'/*'} element={<ErrorPage />} />
         <Route path={'/DataShareAgree'} element={<DataShareAgreePage />} />
         <Route path={'/SampleLoading'} element={<SampleLoading />} />
