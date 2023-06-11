@@ -15,29 +15,8 @@ import {
 import { Box } from '@mui/system';
 import { Col } from '../common/Col';
 import { CommonButton } from '../common/CommonButton';
-
-const data = [
-  {
-    label: '所得・個人住民税情報',
-    isCheck: false,
-  },
-  {
-    label: '国民年金・被用者年金の給付・保険料徴収の情報',
-    isCheck: false,
-  },
-  {
-    label: '銀行名、支店名、口座番号、および口座名義カナなどの公金受取口座の情報',
-    isCheck: false,
-  },
-  {
-    label: '住民票関係情報',
-    isCheck: false,
-  },
-  {
-    label: '特定健診情報',
-    isCheck: false,
-  },
-];
+import { useRecoilState } from 'recoil';
+import { SelectGettingDataState, SelectGettingDataType } from '../../hooks/SelectGettingDataState';
 
 interface ReceiveResultData {
   title: string;
@@ -50,7 +29,7 @@ interface ReceiveResultData {
 export const SelectGettingDataPage: FC = () => {
   const navigate = useNavigate();
 
-  const [CheckList, setCheckList] = useState(data);
+  const [CheckList, setCheckList] = useRecoilState(SelectGettingDataState);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [checkBoxError, setCheckBoxError] = useState(false);
   const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
@@ -65,7 +44,7 @@ export const SelectGettingDataPage: FC = () => {
   });
 
   const handleSelectGetData = () => {
-    navigate('/DataShareAgree')
+    navigate('/DataShareAgree');
   };
 
   const handleClose = () => {
@@ -74,9 +53,10 @@ export const SelectGettingDataPage: FC = () => {
 
   const checkHandle = (index: number) => {
     let checkedFlag = false;
-    const setItem = CheckList.map((prevItem, activeIndex) => {
+    const setItem: SelectGettingDataType[] = CheckList.map((prevItem, activeIndex) => {
       if (index === activeIndex ? !prevItem.isCheck : prevItem.isCheck) checkedFlag = true;
       return {
+        id: prevItem.id,
         label: prevItem.label,
         isCheck: index === activeIndex ? !prevItem.isCheck : prevItem.isCheck,
       };
@@ -147,10 +127,8 @@ export const SelectGettingDataPage: FC = () => {
             <DialogContentText>
               <ul>
                 {CheckList.map((item, index) => {
-                  if(item.isCheck) {
-                    return (
-                      <li>{item.label}</li>
-                    );
+                  if (item.isCheck) {
+                    return <li>{item.label}</li>;
                   }
                 })}
               </ul>
