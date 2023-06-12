@@ -14,7 +14,7 @@ export const SupportSearchPage: FC = () => {
     <MainLayout title="支援金検索">
       <Box>
         <Box>
-          <Typography>あなたの状況で申請ができる支援金を検索します。</Typography>
+          <Typography>あなたの情報から奨学金・支援金を検索します。</Typography>
         </Box>
         <Box sx={{ mx: 2, mt: 2 }}>
           <Typography variant="h5">おすすめ</Typography>
