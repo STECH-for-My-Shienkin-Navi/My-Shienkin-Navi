@@ -41,7 +41,10 @@ export const SupportListPage: FC = () => {
                 <CommonCard
                   key={item.name}
                   title={item.name}
-                  onClick={() => navigate('/SupportDetail')}
+                  onClick={() => {
+                    setSelectSupportId(item.id-1);
+                    navigate('/SupportDetail')
+                  }}
                 >
                   <Stack spacing={2}>
                     <Typography variant="body1" sx={{ height: '4em' }}>
@@ -62,7 +65,7 @@ export const SupportListPage: FC = () => {
                     <CommonButton
                       children="詳細確認・申請"
                       onClick={() => {
-                        setSelectSupportId(item.id);
+                        setSelectSupportId(item.id-1);
                         navigate('/SupportDetail');
                       }}
                     />
