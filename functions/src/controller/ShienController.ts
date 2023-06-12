@@ -55,6 +55,10 @@ ShienController.use(cors({origin: true}));
 
 // GETリクエストの処理
 ShienController.get('/', async (req, res) => {
+  res.set('Access-Control-Allow-Headers', '*');
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS, POST');
+  
   var shienkinData: ShienkinData[] = [];
 
   // 給与条件が指定されているか確認
@@ -84,6 +88,10 @@ ShienController.get('/', async (req, res) => {
 // POSTリクエストで、Firestoreにデータがない場合のみ、新たにデータを追加
 var dataFlag: boolean = false;
 ShienController.post('/', async (req, res) => {
+  res.set('Access-Control-Allow-Headers', '*');
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS, POST');
+
   // Firestoreに既にデータがあるかどうかの確認
   await admin.firestore().collection('shienkinData').where('title', '==', '日本学生支援機構奨学金').get()
     .then(result => {

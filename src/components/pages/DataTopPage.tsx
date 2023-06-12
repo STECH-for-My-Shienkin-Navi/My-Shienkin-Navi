@@ -11,22 +11,22 @@ export const DataTopPage: FC = () => {
 
   const navList = [
     {
-      labele: 'データを共有する',
-      path: '/DataShare',
+      label: 'データを共有する',
+      path: '/SelectGettingData',
       isPrimary: true,
     },
     {
-      labele: '共有されたデータを受け取る',
+      label: '共有されたデータを受け取る',
       path: '/DataReceive',
       isSecondary: true,
     },
     {
-      labele: 'データ共有についての説明を見る',
+      label: 'データ共有についての説明を見る',
       path: '/',
       isText: true,
     },
     {
-      labele: '最初の画面へ戻る',
+      label: '最初の画面へ戻る',
       path: '/',
       isText: true,
     },
@@ -48,7 +48,7 @@ export const DataTopPage: FC = () => {
             {navList.map((item) => {
               return (
                 <CommonButton
-                  key={item.labele}
+                  key={item.label}
                   isPrimary={item.isPrimary}
                   isSecondary={item.isSecondary}
                   isText={item.isText}
@@ -56,7 +56,7 @@ export const DataTopPage: FC = () => {
                     navigator(item.path);
                   }}
                 >
-                  {item.labele}
+                  {item.label}
                 </CommonButton>
               );
             })}

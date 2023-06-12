@@ -15,25 +15,8 @@ import {
 import { Box } from '@mui/system';
 import { Col } from '../common/Col';
 import { CommonButton } from '../common/CommonButton';
-
-const data = [
-  {
-    label: '税・所得',
-    isCheck: false,
-  },
-  {
-    label: '年金',
-    isCheck: false,
-  },
-  {
-    label: '世帯情報',
-    isCheck: false,
-  },
-  {
-    label: '医療保険',
-    isCheck: false,
-  },
-];
+import { useRecoilState } from 'recoil';
+import { SelectGettingDataState, SelectGettingDataType } from '../../hooks/SelectGettingDataState';
 
 interface ReceiveResultData {
   title: string;
@@ -43,10 +26,10 @@ interface ReceiveResultData {
   isShare: number; //0:最初の画面へ戻る、1:支援金の検索へ進む
 }
 
-export const DataSharePage: FC = () => {
+export const SelectGettingDataPage: FC = () => {
   const navigate = useNavigate();
 
-  const [CheckList, setCheckList] = useState(data);
+  const [CheckList, setCheckList] = useRecoilState(SelectGettingDataState);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [checkBoxError, setCheckBoxError] = useState(false);
   const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
@@ -60,15 +43,8 @@ export const DataSharePage: FC = () => {
     isShare: 0,
   });
 
-  const handleSendData = () => {
-    setResultData({
-      title: '共有完了',
-      subText: 'データの共有が完了しました。',
-      isSuccess: true,
-      location: '/',
-      isShare: 0,
-    });
-    setResultPageIsShow(true);
+  const handleSelectGetData = () => {
+    navigate('/DataShareAgree');
   };
 
   const handleClose = () => {
@@ -77,9 +53,10 @@ export const DataSharePage: FC = () => {
 
   const checkHandle = (index: number) => {
     let checkedFlag = false;
-    const setItem = CheckList.map((prevItem, activeIndex) => {
+    const setItem: SelectGettingDataType[] = CheckList.map((prevItem, activeIndex) => {
       if (index === activeIndex ? !prevItem.isCheck : prevItem.isCheck) checkedFlag = true;
       return {
+        id: prevItem.id,
         label: prevItem.label,
         isCheck: index === activeIndex ? !prevItem.isCheck : prevItem.isCheck,
       };
@@ -108,20 +85,20 @@ export const DataSharePage: FC = () => {
             <Typography variant="body1" style={{ marginBottom: '20px' }}>
               他の人へ共有したいデータの種類を選択してください。{' '}
             </Typography>
-            <Typography variant="body1" style={{ fontWeight: 'bold' }}>
+            <Typography variant="body1" style={{ fontWeight: 'bold', marginBottom: '20px' }}>
               共有リンク <span style={{ color: '#FF0000' }}>必須</span>
             </Typography>
             <Stack>
               {CheckList.map((item, index) => {
                 return (
-                  <Box key={item.label}>
+                  <Box key={item.label} display="flex" alignItems="center" marginBottom="10px">
                     <Checkbox
                       checked={item.isCheck}
                       onChange={() => {
                         checkHandle(index);
                       }}
                     />
-                    {item.label}
+                    <Typography style={{ alignSelf: 'center' }}>{item.label}</Typography>
                   </Box>
                 );
               })}
@@ -149,11 +126,15 @@ export const DataSharePage: FC = () => {
             <DialogContentText>以下のデータを共有します。よろしいですか？</DialogContentText>
             <DialogContentText>
               <ul>
-                <li>データ名: XXXX</li>
+                {CheckList.map((item, index) => {
+                  if (item.isCheck) {
+                    return <li>{item.label}</li>;
+                  }
+                })}
               </ul>
             </DialogContentText>
             <DialogActions>
-              <CommonButton onClick={handleSendData}>はい</CommonButton>
+              <CommonButton onClick={handleSelectGetData}>はい</CommonButton>
               <CommonButton isSecondary onClick={handleClose}>
                 いいえ
               </CommonButton>

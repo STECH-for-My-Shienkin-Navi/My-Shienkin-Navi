@@ -5,7 +5,8 @@ import { SupportSearchPage } from '../components/pages/SupportSearchPage';
 import { SupportListPage } from '../components/pages/SupportListPage';
 import { SupportDetailPage } from '../components/pages/SupportDetailPage';
 import { DataTopPage } from '../components/pages/DataTopPage';
-import { DataSharePage } from '../components/pages/DataSharePage';
+import { SelectGettingDataPage } from '../components/pages/SelectGettingDataPage';
+import { DataSharingPage } from '../components/pages/DataSharingPage';
 import { DataReceivePage } from '../components/pages/DataReceivePage';
 import { ErrorPage } from '../components/pages/ErrorPage';
 import { MynaReceivePage4 } from '../components/pages/MynaReceivePage4';
@@ -24,14 +25,18 @@ export const Router: FC = () => {
         <Route path={'/SupportList'} element={<SupportListPage />} />
         <Route path={'/SupportDetail'} element={<SupportDetailPage />} />
         <Route path={'/DataTop'} element={<DataTopPage />} />
-        <Route path={'/DataShare'} element={<DataSharePage />} />
-        <Route path={'/DataReceive'} element={<DataReceivePage />} />
-        <Route path={'/MynaReceivePage4'} element={<MynaReceivePage4 />} />
-        <Route path={'/dev'} element={<Dev />} />
-        <Route path={'/PasswordEntry'} element={<PasswordEntryPage />} />
-        <Route path={'/*'} element={<ErrorPage />} />
+
+        {/* データ共有に関わる一連のページ */}
+        <Route path={'/SelectGettingData'} element={<SelectGettingDataPage />} />
         <Route path={'/DataShareAgree'} element={<DataShareAgreePage />} />
+        <Route path={'/PasswordEntry'} element={<PasswordEntryPage />} />
         <Route path={'/ConfirmProvision'} element={<ConfirmProvisionPage />} />
+        <Route path={'/MynaReceivePage4'} element={<MynaReceivePage4 />} />
+        <Route path={'/DataSharing'} element={<DataSharingPage url="sample.com" />} />
+
+        <Route path={'/DataReceive'} element={<DataReceivePage />} />
+        <Route path={'/dev'} element={<Dev />} />
+        <Route path={'/*'} element={<ErrorPage />} />
         <Route path={'/SampleLoading'} element={<SampleLoading />} />
       </Routes>
     </BrowserRouter>

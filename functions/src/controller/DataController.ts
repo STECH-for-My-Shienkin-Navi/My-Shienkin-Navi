@@ -44,6 +44,10 @@ DataController.use(cors({origin: true}));
 
 // GETリクエストの処理
 DataController.get('/', async (req, res) => {
+  res.set('Access-Control-Allow-Headers', '*');
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS, POST');
+  
   // shareCodeを取得
   const shareCode = req.query.shareCode;
 
@@ -111,6 +115,10 @@ DataController.get('/', async (req, res) => {
 
 // POSTリクエストの処理
 DataController.post('/', async (req, res) => {
+  res.set('Access-Control-Allow-Headers', '*');
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS, POST');
+  
   // 秘密鍵と暗号鍵を生成する
   var key = generateKeyPair(1024);
 

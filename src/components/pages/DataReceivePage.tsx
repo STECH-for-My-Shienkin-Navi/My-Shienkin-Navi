@@ -15,6 +15,8 @@ import { Box } from '@mui/system';
 import { Col } from '../common/Col';
 import { CommonButton } from '../common/CommonButton';
 import { DataResultPage } from './DataResultPage';
+import { Loading } from '../loading';
+import axios from 'axios';
 
 interface ReceiveResultData {
   title: string;
@@ -42,16 +44,28 @@ export const DataReceivePage: FC = () => {
     isShare: 0,
   });
 
-  const receiveData = () => {
-    console.log('receiveDataメソッドがよばれました。');
-    setResultData({
-      title: '受け取り完了',
-      subText: 'データの受け取りが完了しました。',
-      isSuccess: true,
-      location: '/SupportSearch',
-      isShare: 1,
-    });
-    setResultPageIsShow(true);
+  const [isLoading, setIsLoading] = useState(false); // ロード中かどうかの状態
+
+  const receiveData = async () => {
+    setIsLoading(true);
+    // axiosでマイナポータルのモックからデータを取得するリクエストを送信
+    await axios
+      .get(textValue)
+      .then((requestResult) => {
+        console.log(requestResult.data);
+        setResultData({
+          title: '受け取り完了',
+          subText: 'データの受け取りが完了しました。',
+          isSuccess: true,
+          location: '/SupportSearch',
+          isShare: 1,
+        });
+        setResultPageIsShow(true);
+      })
+      .catch((err) => {
+        handleClose();
+      });
+    setIsLoading(false);
   };
 
   const handleClose = () => {
@@ -85,16 +99,12 @@ export const DataReceivePage: FC = () => {
   } else {
     return (
       <MainLayout title="共有データの受け取り">
+        {isLoading && <Loading />}
         {/*受信確認モーダル*/}
         <Dialog open={dialogOpen} onClose={handleClose}>
           <DialogTitle>受け取りデータ確認</DialogTitle>
           <DialogContent>
-            <DialogContentText>以下のデータを受け取ります。よろしいですか？</DialogContentText>
-            <DialogContentText>
-              <ul>
-                <li>データ名: XXXX</li>
-              </ul>
-            </DialogContentText>
+            <DialogContentText>共有されたデータを受け取ります。よろしいですか？</DialogContentText>
             <DialogActions>
               <CommonButton isDisabled={false} onClick={receiveData}>
                 はい

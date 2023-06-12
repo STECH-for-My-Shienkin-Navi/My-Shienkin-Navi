@@ -1,26 +1,39 @@
 export const temporaryMoneyList = [
   {
-    title: '奨学金',
+    title: '給付奨学金',
     path: '/SupportList',
   },
   {
-    title: '学生ローン',
+    title: '貸与奨学金',
     path: '/SupportList',
   },
   {
-    title: '給付金',
+    title: '授業料減免',
     path: '/SupportList',
   },
   {
-    title: '奨学金返還免除制度',
+    title: '予約採用',
     path: '/SupportList',
   },
   {
-    title: '学生生活費貸与制度',
+    title: '在学採用',
     path: '/SupportList',
   },
   {
-    title: '特別支援教育費',
+    title: '留学',
+    path: '/SupportList',
+  },
+  {
+    title: '高校',
+    path: '/SupportList',
+  },
+
+  {
+    title: '大学',
+    path: '/SupportList',
+  },
+  {
+    title: '専門学校',
     path: '/SupportList',
   },
 ];

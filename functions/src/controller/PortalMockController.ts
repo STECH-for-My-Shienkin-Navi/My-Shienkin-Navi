@@ -1,18 +1,25 @@
-import { PostMynaPortalAPI } from '../repository/PostMynaPortalAPI'
+import { GetIncomeData } from '../repository/GetIncomeData';
+import { GetPensionData } from '../repository/GetPensionData';
+import { GetAccountData } from '../repository/GetAccountData';
+import { GetResidentCard } from '../repository/GetResidentCardData';
+import { GetSpecialHealthData } from '../repository/GetSpecialHealth';
 
 import { Request, Response } from "firebase-functions"; 
-import {AxiosResponse} from 'axios'
 
 export async function PortalMockController(req: Request, res: Response) {
+  res.set('Access-Control-Allow-Headers', '*');
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS, POST');
+  
   var requestQuery = req.query.req;
 
   // リクエストクエリとダミー環境のパスとの対応付けを行うオブジェクト
-  var apiDict: {[query: string]: string} = {
-    "income": "2",
-    "pension": "64",
-    "account": "89",
-    "residentCard": "1",
-    "specialHealth": "2-7",
+  var apiDict: {[query: string]: Function} = {
+    "income": GetIncomeData,
+    "pension": GetPensionData,
+    "account": GetAccountData,
+    "residentCard": GetResidentCard,
+    "specialHealth": GetSpecialHealthData,
   };
 
   if(typeof requestQuery == 'string'){
@@ -20,13 +27,13 @@ export async function PortalMockController(req: Request, res: Response) {
     var reqDataList = requestQuery.split(',')
 
     // APIの結果待ち状況を持つリスト
-    var axiosResultList: Promise<AxiosResponse<any, any>>[] = [];
+    var axiosResultList: Promise<any>[] = [];
     var axiosResultLabelList: string[] = [];
 
     // 各リクエストクエリに対して処理を実施
     reqDataList.forEach(async elm => {
       if(apiDict[elm]) {  // 対応するAPIが存在するとき
-        axiosResultList.push(PostMynaPortalAPI(apiDict[elm]));
+        axiosResultList.push(apiDict[elm]());
         axiosResultLabelList.push(elm)
       }
     });
@@ -36,7 +43,7 @@ export async function PortalMockController(req: Request, res: Response) {
 
     // レスポンスを作成する
     for(var i = 0; i < axiosResultList.length; i++) {
-      responseData[axiosResultLabelList[i]] = (await axiosResultList[i]).data[0];
+      responseData[axiosResultLabelList[i]] = (await axiosResultList[i]);
     }
 
     res.json({data: responseData});
