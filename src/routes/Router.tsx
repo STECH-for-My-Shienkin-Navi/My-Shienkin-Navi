@@ -32,8 +32,8 @@ export const Router: FC = () => {
         <Route path={'/PasswordEntry'} element={<PasswordEntryPage />} />
         <Route path={'/ConfirmProvision'} element={<ConfirmProvisionPage />} />
         <Route path={'/MynaReceivePage4'} element={<MynaReceivePage4 />} />
-        <Route path={'/DataSharing'} element={<DataSharingPage url='sample.com' />} />
-        
+        <Route path={'/DataSharing'} element={<DataSharingPage url="sample.com" />} />
+
         <Route path={'/DataReceive'} element={<DataReceivePage />} />
         <Route path={'/dev'} element={<Dev />} />
         <Route path={'/*'} element={<ErrorPage />} />

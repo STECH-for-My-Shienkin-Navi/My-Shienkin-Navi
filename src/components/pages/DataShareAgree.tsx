@@ -1,11 +1,7 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MainLayout } from '../layout/MainLayout';
-import {
-  Checkbox,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { Checkbox, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Col } from '../common/Col';
 import { CommonButton } from '../common/CommonButton';
@@ -31,7 +27,7 @@ export const DataShareAgreePage: FC = () => {
       <MainLayout title="STEP1: 本人同意と本人確認">
         <Box>
           <Typography variant="body1" style={{ marginBottom: '40px' }}>
-          My支援金ナビにおけるデータ共有機能提供のためにマイナポータルを通じて、以下の情報を取得します。
+            My支援金ナビにおけるデータ共有機能提供のためにマイナポータルを通じて、以下の情報を取得します。
           </Typography>
           <ul>
             {CheckList.map((item, index) =>

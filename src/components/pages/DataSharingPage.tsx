@@ -5,12 +5,11 @@ import { Box, Typography, TextField, Snackbar } from '@mui/material';
 import { CommonButton } from '../common/CommonButton';
 import { Col } from '../common/Col';
 
-
 type Props = {
   url: string;
 };
 
-export const DataSharingPage: FC<Props> = ({url}) => {
+export const DataSharingPage: FC<Props> = ({ url }) => {
   const navigate = useNavigate();
 
   const navList = [
@@ -28,7 +27,8 @@ export const DataSharingPage: FC<Props> = ({url}) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(url)
+    navigator.clipboard
+      .writeText(url)
       .then(() => {
         setCopyStatus('リンクがコピーされました。');
         setSnackbarOpen(true);
@@ -48,24 +48,17 @@ export const DataSharingPage: FC<Props> = ({url}) => {
       });
   };
 
-
   return (
     <MainLayout title="共有リンク">
       <Box sx={{ width: '100%' }}>
         <Typography align="left">下記のリンクからデータを共有できます。</Typography>
         <Box sx={{ mx: 2, mt: 10 }}>
           <Col spacing={2}>
-          <Typography variant="body1" style={{ fontWeight: 'bold' }}>
+            <Typography variant="body1" style={{ fontWeight: 'bold' }}>
               共有リンク
             </Typography>
             <Box sx={{ minWidth: 100, maxWidth: 400 }}>
-              <TextField
-                variant="outlined"
-                fullWidth
-                multiline
-                rows={4}
-                value={url}
-              />
+              <TextField variant="outlined" fullWidth multiline rows={4} value={url} />
             </Box>
             <Box>
               <CommonButton
