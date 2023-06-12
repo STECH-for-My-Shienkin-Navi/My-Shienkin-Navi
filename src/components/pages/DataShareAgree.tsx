@@ -1,18 +1,10 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MainLayout } from '../layout/MainLayout';
-import { DataResultPage } from './DataResultPage';
 import {
   Checkbox,
   Stack,
   Typography,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogActions,
-  DialogContentText,
-  List,
-  ListItem,
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { Col } from '../common/Col';
