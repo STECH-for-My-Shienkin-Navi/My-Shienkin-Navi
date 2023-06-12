@@ -68,7 +68,6 @@ export const MynaReceivePage4: FC = () => {
 
   return (
     <>
-      {isLoading && <Loading />}
       <MainLayout title="データ取得結果">
         <Box>
           <Typography>選択された以下の情報を取得しました。</Typography>
@@ -128,6 +127,7 @@ export const MynaReceivePage4: FC = () => {
           </Box>
         </Box>
       </MainLayout>
+      {isLoading && <Loading />}
     </>
   );
 };
