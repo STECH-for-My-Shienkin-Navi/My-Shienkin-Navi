@@ -49,9 +49,10 @@ export const DataReceivePage: FC = () => {
   const receiveData = async () => {
     setIsLoading(true);
     // axiosでマイナポータルのモックからデータを取得するリクエストを送信
-    await axios.get(textValue)
-      .then(requestResult => {
-        console.log(requestResult.data);      
+    await axios
+      .get(textValue)
+      .then((requestResult) => {
+        console.log(requestResult.data);
         setResultData({
           title: '受け取り完了',
           subText: 'データの受け取りが完了しました。',
@@ -61,7 +62,7 @@ export const DataReceivePage: FC = () => {
         });
         setResultPageIsShow(true);
       })
-      .catch(err => {
+      .catch((err) => {
         handleClose();
       });
     setIsLoading(false);

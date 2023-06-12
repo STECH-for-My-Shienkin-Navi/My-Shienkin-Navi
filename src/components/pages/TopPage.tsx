@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MainLayout } from '../layout/MainLayout';
-import { Box, Card, CardContent, Stack, Typography } from '@mui/material';
-import { Row } from '../common/Row';
+import { Stack, Typography } from '@mui/material';
 import { CommonCard } from '../common/CommonCard';
 import checkpaper from '../../assets/checkpaper.png';
 import datashare from '../../assets/datashare.png';
