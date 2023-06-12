@@ -62,8 +62,16 @@ export const DataReceivePage: FC = () => {
         });
         setResultPageIsShow(true);
       })
-      .catch((err) => {
-        handleClose();
+      .catch(err => {
+        console.log(err);      
+        setResultData({
+          title: 'リンクが有効ではありません。',
+          subText: 'データの受け取りに失敗しました。',
+          isSuccess: false,
+          location: '/DataTop',
+          isShare: 0,
+        });
+        setResultPageIsShow(true);
       });
     setIsLoading(false);
   };
