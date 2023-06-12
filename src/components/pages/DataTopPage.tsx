@@ -41,7 +41,7 @@ export const DataTopPage: FC = () => {
           また、他の方に共有されたデータを受け取ることができます。
         </Typography>
         <Box sx={{ textAlign: 'center' }}>
-          <img src={familyImg} loading="lazy" style={{ width: 250 }} alt="家族のイラスト" />
+          <img src={familyImg} style={{ width: 250 }} alt="家族のイラスト" />
         </Box>
         <Box sx={{ mx: 2, mt: 2 }}>
           <Col spacing={2}>

@@ -28,9 +28,7 @@ export const PasswordEntryPage: FC = () => {
         <Box>
           <Typography sx={{ mt: 2 }}>
             マイナンバーカードの
-            <br />
             利用者証明用電子証明書パスワード(4桁の数字)
-            <br />
             を入力してください。
           </Typography>
           <TextField
