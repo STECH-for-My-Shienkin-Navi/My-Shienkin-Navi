@@ -3,13 +3,18 @@ import { MainLayout } from '../layout/MainLayout';
 import { Box, Typography } from '@mui/material';
 import { CommonCard } from '../common/CommonCard';
 import { Col } from '../common/Col';
-import { supportMoneyList } from '../../data/supportMoneyList';
 import { CommonButton } from '../common/CommonButton';
 import { temporaryMoneyList } from '../../data/temporaryMoneyList';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { SupportDataListState } from '../../data/SupportDataList';
+import { SelectSupportIdState } from '../../hooks/SelectSupportIdState';
 
 export const SupportSearchPage: FC = () => {
   const navigator = useNavigate();
+  const [SupportDataList, setSupportDataList] = useRecoilState(SupportDataListState);
+  const [selectItemId, setSupportItemId] = useRecoilState(SelectSupportIdState);
+
   return (
     <MainLayout title="支援金検索">
       <Box>
@@ -29,13 +34,16 @@ export const SupportSearchPage: FC = () => {
               padding: '10px',
             }}
           >
-            {supportMoneyList.map((item) => {
+            {SupportDataList.slice(0,5).map((item) => {
               return (
-                <Box key={item.title} sx={{ maxWidth: '200px', minWidth: '200px' }}>
-                  <CommonCard onClick={() => navigator(item.path)} title={item.title}>
+                <Box key={item.id} sx={{ maxWidth: '200px', minWidth: '200px' }}>
+                  <CommonCard onClick={() => {
+                    setSupportItemId(item.id-1);
+                    navigator('/SupportDetail');
+                  }} title={item.name}>
                     <Box sx={{ height: '100px' }}>
                       <Typography sx={{ lineBreak: 'loose', whiteSpace: 'normal' }}>
-                        {item.contents}
+                        {item.content}
                       </Typography>
                     </Box>
                   </CommonCard>

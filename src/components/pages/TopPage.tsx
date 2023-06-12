@@ -52,7 +52,7 @@ export const TopPage: FC = () => {
               }}
             >
               <Stack alignItems="center">
-                <img src={item.img} loading="lazy" style={{ width: '200px' }} alt={item.title} />
+                <img src={item.img} style={{ width: '200px' }} alt={item.title} />
                 <Typography variant="h6" sx={{ textAlign: 'center' }}>
                   {item.title}
                 </Typography>

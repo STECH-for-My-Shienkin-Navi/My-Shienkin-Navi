@@ -37,12 +37,11 @@ export const DataResultPage: FC<Props> = ({ title, subText, isSuccess, location,
           {isSuccess ? (
             <img
               src={checkImg}
-              loading="lazy"
               style={{ width: 100 }}
               alt="チェックマークのイラスト"
             />
           ) : (
-            <img src={crossImg} loading="lazy" style={{ width: 100 }} alt="バツマークのイラスト" />
+            <img src={crossImg} style={{ width: 100 }} alt="バツマークのイラスト" />
           )}
         </Box>
         <Box sx={{ mx: 2, mt: 30 }}>
