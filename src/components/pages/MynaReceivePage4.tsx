@@ -15,6 +15,8 @@ import { Col } from '../common/Col';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Loading } from '../loading';
+import { useRecoilState } from 'recoil';
+import { ShareLinkState } from '../../hooks/ShareLinkState';
 import axios from 'axios';
 
 export const MynaReceivePage4: FC = () => {
@@ -56,6 +58,7 @@ export const MynaReceivePage4: FC = () => {
         '健診情報・基本項目, 健診情報・質問票（特定健診）, 特定健診・質問票（後期高齢者健診）, 特定健診情報, 資格情報',
     },
   ];
+  const [ShareLink, setShareLink] = useRecoilState(ShareLinkState);
 
   const sampleData = {
     data: {
@@ -116,7 +119,7 @@ export const MynaReceivePage4: FC = () => {
                   setIsLoading(false);
 
                   const shareLink = `https://us-central1-my-shienkin-navi-67cc2.cloudfunctions.net/data?shareCode=${requestResult.data['shareCode']}`;
-                  console.log(shareLink);
+                  setShareLink(shareLink);
 
                   navigator(navList[0].location);
                 }}
