@@ -3,47 +3,74 @@ import { MainLayout } from '../layout/MainLayout';
 import { CommonButton } from '../common/CommonButton';
 import { CommonCard } from '../common/CommonCard';
 import { useNavigate } from 'react-router-dom';
-import { Stack, Typography, IconButton } from '@mui/material';
-import { supportMoneyList } from '../../data/supportMoneyList';
+import { Stack, Typography, IconButton, Chip } from '@mui/material';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import LastPageIcon from '@mui/icons-material/LastPage';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { SupportDataListState } from '../../data/SupportDataList';
+import { SelectSupportIdState } from '../../hooks/SelectSupportIdState';
 
 export const SupportListPage: FC = () => {
   const navigate = useNavigate();
+  const supportDataList = useRecoilValue(SupportDataListState);
+
   const itemsPerPage = 4; // 1ページあたりのアイテム数
   const [currentPage, setCurrentPage] = useState(0); // 現在のページ数
-  const [currentList, setCurrentList] = useState(supportMoneyList.slice(0, itemsPerPage)); // 現在表示するリスト
+  const [currentList, setCurrentList] = useState(supportDataList.slice(0, itemsPerPage)); // 現在表示するリスト
+  // recoil SelectSupportIdState
+  const setSelectSupportId = useSetRecoilState(SelectSupportIdState);
 
   useEffect(() => {
     // ページが変更された時に表示するリストを更新
     const start = currentPage * itemsPerPage;
     const end = start + itemsPerPage;
-    setCurrentList(supportMoneyList.slice(start, end));
+    setCurrentList(supportDataList.slice(start, end));
   }, [currentPage]);
 
-  const maxPage = Math.ceil(supportMoneyList.length / itemsPerPage) - 1; // 最大ページ数
+  const maxPage = Math.ceil(supportDataList.length / itemsPerPage) - 1; // 最大ページ数
 
   return (
     <MainLayout title="奨学金の一覧">
       <Stack sx={{ width: '100%' }} spacing={3}>
-        {currentList.map((item, index) => {
-          return (
-            <CommonCard key={item.title} title={item.title} onClick={() => navigate(item.path)}>
-              <Typography variant="body1" sx={{ marginBottom: '20px' }}>
-                {item.contents}
-              </Typography>
-              <CommonButton
-                children="詳細確認・申請"
-                onClick={() => {
-                  console.log('aaa');
-                  navigate('/SupportDetail');
-                }}
-              />
-            </CommonCard>
-          );
-        })}
+        {currentList.length > 0
+          ? currentList.map((item) => {
+              return (
+                <CommonCard
+                  key={item.name}
+                  title={item.name}
+                  onClick={() => navigate('/SupportDetail')}
+                >
+                  <Stack spacing={2}>
+                    <Typography variant="body1" sx={{ height: '4em' }}>
+                      {item.content}
+                    </Typography>
+                    <Stack direction="row" spacing={0.5}>
+                      {item.tag.map((tag, index) => {
+                        return index > 4 ? null : (
+                          <Chip
+                            label={tag}
+                            variant="outlined"
+                            color="primary"
+                            deleteIcon={<LocalOfferIcon />}
+                          />
+                        );
+                      })}
+                    </Stack>
+                    <CommonButton
+                      children="詳細確認・申請"
+                      onClick={() => {
+                        setSelectSupportId(item.id);
+                        navigate('/SupportDetail');
+                      }}
+                    />
+                  </Stack>
+                </CommonCard>
+              );
+            })
+          : null}
 
         <Stack
           direction="row"

@@ -205,7 +205,7 @@ const initialData: SupportDataType[] = [
   },
 ];
 
-export const SupportDataList = atom<SupportDataType[]>({
+export const SupportDataListState = atom<SupportDataType[]>({
   key: 'SupportDataList',
   default: initialData,
 });
@@ -215,4 +215,4 @@ export const SupportDataList = atom<SupportDataType[]>({
   不足をインポートして下さい
   ↓↓↓
 */
-const supportDataList = useRecoilValue(SupportDataList);
+// const supportDataList = useRecoilValue(SupportDataListState);
