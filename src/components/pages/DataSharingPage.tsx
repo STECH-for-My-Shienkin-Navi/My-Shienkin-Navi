@@ -4,6 +4,8 @@ import { MainLayout } from '../layout/MainLayout';
 import { Box, Typography, TextField, Snackbar } from '@mui/material';
 import { CommonButton } from '../common/CommonButton';
 import { Col } from '../common/Col';
+import { useRecoilState } from 'recoil';
+import { ShareLinkState } from '../../hooks/ShareLinkState';
 
 type Props = {
   url: string;
@@ -11,6 +13,7 @@ type Props = {
 
 export const DataSharingPage: FC<Props> = ({ url }) => {
   const navigate = useNavigate();
+  const [ShareLink, setShareLink] = useRecoilState(ShareLinkState);
 
   const navList = [
     {
@@ -28,7 +31,7 @@ export const DataSharingPage: FC<Props> = ({ url }) => {
 
   const copyToClipboard = () => {
     navigator.clipboard
-      .writeText(url)
+      .writeText(ShareLink)
       .then(() => {
         setCopyStatus('リンクがコピーされました。');
         setSnackbarOpen(true);
@@ -58,7 +61,7 @@ export const DataSharingPage: FC<Props> = ({ url }) => {
               共有リンク
             </Typography>
             <Box sx={{ minWidth: 100, maxWidth: 400 }}>
-              <TextField variant="outlined" fullWidth multiline rows={4} value={url} />
+              <TextField variant="outlined" fullWidth multiline rows={4} value={ShareLink} />
             </Box>
             <Box>
               <CommonButton
