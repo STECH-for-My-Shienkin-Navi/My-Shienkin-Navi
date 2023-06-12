@@ -8,6 +8,7 @@ import { CommonButton } from '../common/CommonButton';
 import { useRecoilValue } from 'recoil';
 import { SupportDataListState } from '../../data/SupportDataList';
 import { SupportDataType } from '../../types/SupportDataType';
+import { SelectSupportIdState } from '../../hooks/SelectSupportIdState';
 
 const dispItem = [
   {
@@ -58,21 +59,8 @@ const NGChip = () => {
 export const SupportDetailPage: FC = () => {
   const navigator = useNavigate();
   const supportDataList = useRecoilValue(SupportDataListState);
-  const selectItemId = 5;
+  const selectItemId = useRecoilValue(SelectSupportIdState);
   const dispContent = supportDataList[selectItemId];
-
-  const navList = [
-    {
-      label: 'この支援金を申請する',
-      path: null,
-      isPrimary: true,
-    },
-    {
-      label: '支援金の選択肢に戻る',
-      path: '/SupportList',
-      isSecondary: true,
-    },
-  ];
 
   return (
     <MainLayout title="支援金の詳細">
@@ -109,7 +97,7 @@ export const SupportDetailPage: FC = () => {
                         </Grid>
                         <Grid item xs={6} textAlign="center">
                           {/* {supportDataList[selectItemId].status[index] ? <OKChip /> : <NGChip />} */}
-                          {index !== 2 ? <OKChip /> : <NGChip />}
+                          {index !== 1 ? <OKChip /> : <NGChip />}
                         </Grid>
                       </Grid>
                     );

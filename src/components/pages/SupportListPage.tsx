@@ -9,8 +9,9 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { SupportDataListState } from '../../data/SupportDataList';
+import { SelectSupportIdState } from '../../hooks/SelectSupportIdState';
 
 export const SupportListPage: FC = () => {
   const navigate = useNavigate();
@@ -19,6 +20,8 @@ export const SupportListPage: FC = () => {
   const itemsPerPage = 4; // 1ページあたりのアイテム数
   const [currentPage, setCurrentPage] = useState(0); // 現在のページ数
   const [currentList, setCurrentList] = useState(supportDataList.slice(0, itemsPerPage)); // 現在表示するリスト
+  // recoil SelectSupportIdState
+  const setSelectSupportId = useSetRecoilState(SelectSupportIdState);
 
   useEffect(() => {
     // ページが変更された時に表示するリストを更新
@@ -59,6 +62,7 @@ export const SupportListPage: FC = () => {
                     <CommonButton
                       children="詳細確認・申請"
                       onClick={() => {
+                        setSelectSupportId(item.id);
                         navigate('/SupportDetail');
                       }}
                     />
